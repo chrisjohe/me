@@ -237,7 +237,7 @@ main {
 .cards {
   --card-count: 6;
   --card-gap: 8px;
-  --card-border: 1px;
+  --card-border: 0px;
   --active-card-grow: 4.5;
   --card-width-closed: calc((100cqw - (var(--card-count) - 1) * var(--card-gap) - var(--card-count) * 2 * var(--card-border)) / (var(--active-card-grow) + var(--card-count) - 1));
   container-type: size;
