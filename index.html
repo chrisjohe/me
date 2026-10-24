@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0d0d0d">
+    <title>Christian J. Heinze</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <script src="theme.js?v=20261023-theme-icons"></script>
+    <script src="motion.js?v=20261024-motion-toggle"></script>
+    <link rel="preload" href="font/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=20261024-public-photos">
+    <link rel="stylesheet" href="assets/elsewhere/elsewhere.css?v=20261024-integrated">
+    <link rel="stylesheet" href="assets/lanyard/contact.css?v=20261024-link-arrows">
+    <script src="app.js?v=20261024-perspectives-order" defer></script>
+  </head>
+  <body>
+    <main aria-label="Digital Portrait">
+      <div class="cards" role="group" aria-label="Sections">
+        <button class="card" data-card="academia" type="button" aria-pressed="false" aria-controls="section-view">
+          <span class="card-title">Academia</span>
+          <span class="card-title-vertical" aria-hidden="true">Academia</span>
+        </button>
+        <button class="card" data-card="experience" type="button" aria-pressed="false" aria-controls="section-view">
+          <span class="card-title">Experience</span>
+          <span class="card-title-vertical" aria-hidden="true">Experience</span>
+        </button>
+        <button class="card is-active" data-card="portrait" type="button" aria-pressed="true" aria-controls="section-view">
+          <span class="card-title">Christian J. Heinze</span>
+          <span class="card-title-vertical" aria-hidden="true">Christian J. Heinze</span>
+        </button>
+        <button class="card" data-card="perspectives" type="button" aria-pressed="false" aria-controls="section-view">
+          <span class="card-title">Perspectives</span>
+          <span class="card-title-vertical" aria-hidden="true">Perspectives</span>
+        </button>
+        <button class="card" data-card="elsewhere" type="button" aria-pressed="false" aria-controls="section-view">
+          <span class="card-title">Elsewhere</span>
+          <span class="card-title-vertical" aria-hidden="true">Elsewhere</span>
+        </button>
+        <button class="card" data-card="contact" type="button" aria-pressed="false" aria-controls="section-view">
+          <svg class="contact-hey" viewBox="586.704 260.438 333.350 314.810" aria-hidden="true" focusable="false">
+            <defs>
+              <mask id="hey-write-mask" maskUnits="userSpaceOnUse" x="586.704" y="260.438" width="333.350" height="314.810">
+                <path class="hey-trace" d="M 592.38,370.70 C 593.26 370.13, 593.84 369.50, 594.70 367.34 C 595.56 365.19, 595.66 363.62, 596.68 359.92 C 597.70 356.22, 598.26 353.74, 599.80 348.82 C 601.34 343.91, 602.24 340.97, 604.39 335.32 C 606.54 329.68, 608.00 326.50, 610.56 320.58 C 613.13 314.67, 614.48 311.51, 617.20 305.74 C 619.93 299.98, 621.37 296.95, 624.19 291.75 C 627.02 286.55, 628.69 283.88, 631.31 279.75 C 633.94 275.63, 635.43 273.75, 637.33 271.12 C 639.24 268.49, 639.91 267.45, 640.85 266.59 C 641.79 265.73, 641.64 265.69, 642.04 266.81 C 642.44 267.93, 642.33 269.00, 642.84 272.20 C 643.35 275.39, 643.99 277.64, 644.60 282.78 C 645.21 287.93, 645.47 291.15, 645.88 297.92 C 646.28 304.69, 646.42 308.89, 646.63 316.64 C 646.84 324.38, 646.81 328.53, 646.92 336.65 C 647.03 344.77, 647.07 349.18, 647.16 357.22 C 647.26 365.27, 647.32 369.45, 647.41 376.86 C 647.49 384.28, 647.59 387.88, 647.61 394.29 C 647.63 400.70, 647.57 403.76, 647.49 408.91 C 647.42 414.06, 647.49 416.39, 647.25 420.04 C 647.01 423.69, 646.65 425.02, 646.31 427.15 C 645.97 429.27, 645.80 429.96, 645.56 430.66 C 645.33 431.37, 645.53 431.28, 645.12 430.68 C 644.72 430.08, 644.61 429.39, 643.53 427.64 C 642.45 425.90, 641.30 424.90, 639.72 421.95 C 638.15 419.00, 637.24 416.78, 635.67 412.91 C 634.10 409.03, 633.25 406.80, 631.87 402.57 C 630.49 398.34, 629.64 395.95, 628.77 391.74 C 627.89 387.52, 627.71 385.22, 627.50 381.50 C 627.29 377.77, 627.23 376.33, 627.71 373.13 C 628.19 369.92, 628.56 368.28, 629.90 365.48 C 631.25 362.68, 632.07 361.64, 634.42 359.14 C 636.76 356.64, 638.35 355.48, 641.65 352.98 C 644.94 350.49, 646.90 349.26, 650.89 346.66 C 654.88 344.07, 657.22 342.71, 661.60 340.01 C 665.99 337.31, 668.43 335.85, 672.82 333.17 C 677.22 330.49, 679.54 329.15, 683.57 326.63 C 687.60 324.11, 689.64 322.96, 692.98 320.58 C 696.32 318.20, 697.82 317.16, 700.25 314.73 C 702.67 312.30, 703.75 311.04, 705.12 308.44 C 706.50 305.84, 706.89 304.22, 707.12 301.73 C 707.34 299.24, 707.14 297.82, 706.26 296.01 C 705.39 294.20, 704.46 293.14, 702.74 292.69 C 701.02 292.24, 699.26 292.15, 697.65 293.77 C 696.04 295.39, 695.47 296.93, 694.69 300.80 C 693.91 304.67, 693.98 307.34, 693.76 313.12 C 693.53 318.89, 693.36 322.58, 693.56 329.67 C 693.77 336.75, 694.05 340.91, 694.77 348.53 C 695.49 356.15, 695.95 360.33, 697.16 367.77 C 698.37 375.21, 699.12 379.03, 700.81 385.71 C 702.51 392.39, 703.47 395.63, 705.65 401.17 C 707.82 406.71, 709.10 409.22, 711.69 413.40 C 714.28 417.57, 715.72 419.26, 718.59 422.05 C 721.46 424.84, 722.88 425.98, 726.03 427.33 C 729.19 428.68, 731.14 429.15, 734.36 428.80 C 737.58 428.46, 739.25 427.61, 742.11 425.62 C 744.98 423.62, 746.29 422.23, 748.69 418.82 C 751.09 415.41, 752.03 413.17, 754.13 408.56 C 756.23 403.94, 757.33 401.13, 759.18 395.74 C 761.03 390.35, 762.00 387.04, 763.40 381.61 C 764.79 376.19, 765.43 373.37, 766.17 368.61 C 766.91 363.86, 767.28 361.56, 767.10 357.84 C 766.93 354.12, 766.61 352.33, 765.30 350.01 C 763.98 347.69, 762.79 346.75, 760.51 346.23 C 758.24 345.71, 756.29 345.75, 753.92 347.40 C 751.54 349.06, 750.41 350.78, 748.63 354.50 C 746.86 358.23, 746.11 360.87, 745.03 366.03 C 743.95 371.19, 743.22 374.59, 743.24 380.30 C 743.27 386.02, 743.82 389.39, 745.15 394.61 C 746.48 399.84, 747.43 402.43, 749.89 406.42 C 752.35 410.41, 753.94 412.13, 757.44 414.56 C 760.94 416.98, 763.17 417.88, 767.40 418.55 C 771.63 419.22, 774.06 418.86, 778.60 417.90 C 783.14 416.95, 785.62 416.08, 790.11 413.77 C 794.60 411.46, 796.92 409.79, 801.05 406.36 C 805.17 402.93, 807.26 400.85, 810.74 396.62 C 814.21 392.40, 815.80 389.66, 818.42 385.24 C 821.04 380.83, 822.22 378.32, 823.82 374.54 C 825.43 370.76, 826.31 368.78, 826.46 366.34 C 826.61 363.89, 825.70 362.57, 824.58 362.31 C 823.46 362.05, 821.90 362.73, 820.85 365.02 C 819.80 367.31, 819.57 369.70, 819.33 373.78 C 819.09 377.86, 819.06 380.67, 819.66 385.41 C 820.26 390.15, 820.70 393.15, 822.33 397.48 C 823.97 401.81, 825.12 403.98, 827.83 407.06 C 830.55 410.13, 832.33 411.44, 835.89 412.85 C 839.44 414.27, 841.62 414.46, 845.62 414.13 C 849.62 413.80, 851.83 413.06, 855.89 411.20 C 859.94 409.33, 862.22 407.90, 865.90 404.79 C 869.58 401.69, 871.24 399.57, 874.28 395.67 C 877.33 391.77, 878.81 389.45, 881.11 385.30 C 883.41 381.16, 884.46 378.67, 885.78 374.94 C 887.10 371.20, 887.65 368.90, 887.71 366.62 C 887.77 364.34, 886.67 363.23, 886.08 363.53 C 885.50 363.82, 884.72 364.75, 884.77 368.08 C 884.82 371.40, 885.50 374.07, 886.34 380.15 C 887.17 386.24, 887.65 390.35, 888.95 398.50 C 890.24 406.64, 891.14 411.59, 892.81 420.90 C 894.48 430.21, 895.44 435.42, 897.29 445.04 C 899.13 454.66, 900.15 459.58, 902.04 469.00 C 903.92 478.41, 905.14 483.27, 906.72 492.12 C 908.30 500.97, 909.06 505.35, 909.95 513.24 C 910.84 521.14, 911.24 524.91, 911.16 531.59 C 911.08 538.27, 910.81 541.35, 909.54 546.64 C 908.26 551.93, 907.24 554.29, 904.78 558.06 C 902.33 561.82, 900.79 563.32, 897.27 565.46 C 893.76 567.59, 891.64 568.29, 887.20 568.74 C 882.76 569.20, 879.99 569.06, 875.06 567.73 C 870.14 566.40, 867.26 565.09, 862.57 562.09 C 857.88 559.09, 855.39 557.04, 851.59 552.74 C 847.80 548.45, 845.81 545.88, 843.60 540.61 C 841.38 535.34, 840.51 532.20, 840.50 526.40 C 840.49 520.59, 841.24 517.57, 843.56 511.60 C 845.88 505.64, 847.75 502.42, 852.11 496.57 C 856.48 490.71, 859.39 487.70, 865.39 482.32 C 871.39 476.94, 875.36 474.28, 882.10 469.67 C 888.85 465.05, 892.50 462.82, 899.10 459.23 C 905.69 455.63, 912.05 453.58, 915.07 451.69" pathLength="1" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+              </mask>
+            </defs>
+            <image href="assets/hey.svg" x="586.704" y="260.438" width="333.350" height="314.810" mask="url(#hey-write-mask)"/>
+          </svg>
+          <span class="card-title">Let’s talk</span>
+          <span class="card-title-vertical" aria-hidden="true">Let’s talk</span>
+        </button>
+      </div>
+      <section class="section-view" id="section-view" aria-labelledby="section-title" tabindex="-1" hidden inert>
+        <header class="section-header">
+          <button class="section-back" type="button" aria-label="Back to overview" title="Back to overview">
+            <span class="section-back-icon" aria-hidden="true"></span>
+          </button>
+          <h1 id="section-title"></h1>
+        </header>
+        <div class="section-scroll" role="region" aria-labelledby="section-title" tabindex="0">
+          <div class="portrait-content" id="portrait-content" data-section="portrait" data-heading="Hey, I'm CJ." hidden>
+            <div class="portrait-intro">
+              <div class="portrait-copy">
+                <p class="portrait-statement">
+                  I spent almost a decade working inside banks.<br>
+                  <em class="text-highlight">Now I advise them.</em>
+                </p>
+                <p class="portrait-teaching">And teach banking, too.</p>
+              </div>
+              <div class="portrait-photo">
+                <img src="photos/public/portrait.jpg" alt="Chris wearing glasses and a white T-shirt in front of a gray wall." width="2890" height="2802">
+              </div>
+            </div>
+            <nav class="portrait-roles" aria-label="Professional background">
+              <button class="role-link" type="button" data-section-target="experience" aria-controls="section-view">
+                <span class="role-name">Senior Consultant</span>
+                <span class="role-organisation">Deloitte · Financial Services</span>
+                <span class="role-destination">Experience <span class="role-arrow" aria-hidden="true">→</span></span>
+              </button>
+              <button class="role-link" type="button" data-section-target="academia" aria-controls="section-view">
+                <span class="role-name">Lecturer</span>
+                <span class="role-organisation">DHBW · Business Administration–Banking</span>
+                <span class="role-destination">Academia <span class="role-arrow" aria-hidden="true">→</span></span>
+              </button>
+            </nav>
+          </div>
+          <div class="academia-content" id="academia-content" data-section="academia" hidden>
+            <div class="academia-layout">
+              <div class="academia-tabs" role="tablist" aria-label="Academic chapters">
+                <button id="academia-tab-teaching" type="button" role="tab" data-academia-target="academia-teaching" aria-controls="academia-teaching" aria-selected="true" tabindex="0">Teaching</button>
+                <button id="academia-tab-education" type="button" role="tab" data-academia-target="academia-education" aria-controls="academia-education" aria-selected="false" tabindex="-1">Education</button>
+                <button id="academia-tab-learning" type="button" role="tab" data-academia-target="academia-learning" aria-controls="academia-learning" aria-selected="false" tabindex="-1">Further learning</button>
+              </div>
+              <div class="academia-chapters">
+                <section class="academia-chapter" id="academia-teaching" role="tabpanel" aria-labelledby="academia-tab-teaching" tabindex="0">
+                  <p class="academia-statement">Back at university.<br><em class="text-highlight">This time teaching.</em></p>
+                  <article class="academia-entry" aria-labelledby="academia-lecturer-title">
+                    <p class="academia-date">2025–present</p>
+                    <h2 id="academia-lecturer-title">Lecturer</h2>
+                    <p class="academia-field">
+                      <a class="academia-institution-link" href="https://www.heidenheim.dhbw.de/duales-studium-bwl-bank" target="_blank" rel="noopener noreferrer" title="DHBW Heidenheim: Business Administration–Banking (opens in a new tab)" aria-label="DHBW Baden-Wuerttemberg Cooperative State University: Business Administration–Banking program (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/dhbw-symbol.svg" alt="" width="16" height="16">DHBW</span> Baden-Wuerttemberg Cooperative State University&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a> · Business Administration–Banking
+                    </p>
+                    <p class="academia-description">Alongside my work in financial services, I teach in the Business Administration–Banking program at DHBW.</p>
+                  </article>
+                  <article class="academia-entry" aria-labelledby="academia-examiner-title">
+                    <p class="academia-date">2025–present</p>
+                    <h2 id="academia-examiner-title">Examiner</h2>
+                    <p class="academia-field">
+                      <a class="academia-institution-link" href="https://www.ihk.de/ostwuerttemberg" target="_blank" rel="noopener noreferrer" title="IHK Ostwürttemberg (opens in a new tab)" aria-label="IHK Ostwürttemberg (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/ihk-favicon.ico" alt="" width="16" height="16">IHK</span> Ostwürttemberg&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a> · Volunteer
+                    </p>
+                    <p class="academia-description">I serve on the examination board for vocational training in banking.</p>
+                  </article>
+                </section>
+                <section class="academia-chapter" id="academia-education" role="tabpanel" aria-labelledby="academia-tab-education" tabindex="0" hidden>
+                  <article class="academia-entry" aria-labelledby="academia-hhl-title">
+                    <p class="academia-date">2022–2024</p>
+                    <h2 id="academia-hhl-title"><a class="academia-heading-link" href="https://www.hhl.de" target="_blank" rel="noopener noreferrer" title="HHL Leipzig (opens in a new tab)" aria-label="HHL Leipzig website (opens in a new tab)">HHL Leipzig <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                    <p class="academia-field">M.Sc. in Management · Finance Track</p>
+                    <p class="academia-description">A focus on finance, with a master's thesis exploring the valuation of virtual assets through option pricing theory.</p>
+                    <details class="academia-details">
+                      <summary aria-label="Thesis and details for my master's degree at HHL">Thesis &amp; details <span class="details-toggle" aria-hidden="true"></span></summary>
+                      <div class="accordion-content">
+                        <div class="academia-detail-group">
+                          <h3>Academic details</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Study period</dt><dd>Sep 2022–Aug 2024</dd></div>
+                            <div><dt>Final grade</dt><dd>1.2 (B) · German grading scale</dd></div>
+                            <div><dt>Master's thesis</dt><dd>Valuing Virtual Assets Using Option Pricing Theory — A Perfect Financial Markets Game</dd></div>
+                            <div><dt>Academic recognition</dt><dd>Beta Gamma Sigma membership, awarded for academic performance in November 2023.</dd></div>
+                          </dl>
+                        </div>
+                        <div class="academia-detail-group">
+                          <h3>University engagement</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Student representation</dt><dd>Class Representative, 2022–2024.</dd></div>
+                            <div><dt>TEDxHHL</dt><dd>Operations Team Member, 2022–2023.</dd></div>
+                          </dl>
+                        </div>
+                      </div>
+                    </details>
+                    <div class="academia-international">
+                      <h3>International study</h3>
+                      <ul class="academia-course-list">
+                        <li>
+                          <span class="academia-list-date">2024</span>
+                          <div>
+                            <h4 class="academia-list-title"><a class="academia-heading-link" href="https://www.aalto.fi" target="_blank" rel="noopener noreferrer" title="Aalto University (opens in a new tab)" aria-label="Aalto University website (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/aalto-favicon.png" alt="" width="16" height="16">Aalto</span> University&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a></h4>
+                            <p>Digital Business Master Class · Summer School</p>
+                            <p class="academia-list-location">Helsinki, Finland</p>
+                            <details class="academia-details">
+                              <summary aria-label="Grades and details for my summer school at Aalto University">Grades &amp; details <span class="details-toggle" aria-hidden="true"></span></summary>
+                              <div class="accordion-content">
+                                <dl class="academia-facts">
+                                  <div><dt>Final grade</dt><dd>4/5 (very good) · Finnish grading scale</dd></div>
+                                </dl>
+                              </div>
+                            </details>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="academia-list-date">2023</span>
+                          <div>
+                            <h4 class="academia-list-title"><a class="academia-heading-link" href="https://www.babson.edu" target="_blank" rel="noopener noreferrer" title="Babson College (opens in a new tab)" aria-label="Babson College website (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/babson-favicon.ico" alt="" width="16" height="16">Babson</span> College&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a></h4>
+                            <p>Lead Like a CEO · Seminar</p>
+                            <p class="academia-list-location">Massachusetts, United States</p>
+                            <details class="academia-details">
+                              <summary aria-label="Details of the Lead Like a CEO seminar at Babson College">Details <span class="details-toggle" aria-hidden="true"></span></summary>
+                              <div class="accordion-content">
+                                <dl class="academia-facts">
+                                  <div><dt>Certificate</dt><dd>Certificate of participation from Babson College.</dd></div>
+                                </dl>
+                              </div>
+                            </details>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="academia-list-date">2023</span>
+                          <div>
+                            <h4 class="academia-list-title"><a class="academia-heading-link" href="https://escp.eu" target="_blank" rel="noopener noreferrer" title="ESCP Business School (opens in a new tab)" aria-label="ESCP Business School website (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon institution-favicon-escp" src="assets/escp-favicon.ico" alt="" width="16" height="16">ESCP</span> Business School&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a></h4>
+                            <p>Master in Management · Semester abroad</p>
+                            <p class="academia-list-location">Paris, France</p>
+                            <details class="academia-details">
+                              <summary aria-label="Grades and details for my semester abroad at ESCP">Grades &amp; details <span class="details-toggle" aria-hidden="true"></span></summary>
+                              <div class="accordion-content">
+                                <dl class="academia-facts">
+                                  <div><dt>Final grade</dt><dd>16.10/20 (<span lang="fr">très bien</span>) · French grading scale</dd></div>
+                                  <div><dt>HHL grade conversion</dt><dd>1.0 · German grading scale</dd></div>
+                                </dl>
+                              </div>
+                            </details>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article class="academia-entry" aria-labelledby="academia-dhbw-title">
+                    <p class="academia-date">2018–2021</p>
+                    <h2 id="academia-dhbw-title"><a class="academia-heading-link" href="https://www.dhbw.de" target="_blank" rel="noopener noreferrer" title="DHBW Baden-Wuerttemberg Cooperative State University (opens in a new tab)" aria-label="DHBW Baden-Wuerttemberg Cooperative State University website (opens in a new tab)">DHBW Baden-Wuerttemberg Cooperative State University <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                    <p class="academia-field">B.A. in Business Administration–Banking · Dual study</p>
+                    <p class="academia-description">A dual degree combining banking studies with practical work at Sparkasse. Graduated top of the class of 2021.</p>
+                    <details class="academia-details">
+                      <summary aria-label="Thesis and details for my bachelor's degree at DHBW">Thesis &amp; details <span class="details-toggle" aria-hidden="true"></span></summary>
+                      <div class="accordion-content">
+                        <div class="academia-detail-group">
+                          <h3>Academic details</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Study period</dt><dd>Oct 2018–Sep 2021</dd></div>
+                            <div><dt>Final grade</dt><dd>1.4 (A) · German grading scale</dd></div>
+                            <div><dt>Bachelor's thesis focus</dt><dd>Special Purpose Acquisition Companies (SPACs) as an additional asset class for retail clients.</dd></div>
+                            <div><dt>Languages</dt><dd>English: CEFR C2 · Certificate issued by the International Office<br>Additional courses: Business English and General English</dd></div>
+                          </dl>
+                        </div>
+                        <div class="academia-detail-group">
+                          <h3>Awards &amp; scholarships</h3>
+                          <dl class="academia-facts">
+                            <div><dt>2021</dt><dd><a class="academia-institution-link" href="https://www.heidenheim.dhbw.de/dhbw-heidenheim/news/artikel/2020/12/dhbw-heidenheim-verabschiedet-mehr-als-660-absolventinnen-und-absolventen#c40288" target="_blank" rel="noopener noreferrer" title="DHBW Heidenheim article about my student advocacy award (opens in a new tab)" aria-label="DHBW Heidenheim article about my student advocacy award (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/dhbw-symbol.svg" alt="" width="16" height="16">Award</span> for Student Advocacy&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a><br>Endowed by Voith GmbH &amp; Co. KGaA.</dd></div>
+                            <div><dt>2020</dt><dd><a class="academia-institution-link" href="https://vwi.org/scope/kreati-fallstudien/" target="_blank" rel="noopener noreferrer" title="VWI KREATI Case Study Competition (opens in a new tab)" aria-label="VWI KREATI Case Study Competition (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/vwi-favicon.png" alt="" width="16" height="16">KREATI</span> Case Study Competition&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a><br>Second place nationwide · Verband Deutscher Wirtschaftsingenieure e.V. (VWI)</dd></div>
+                            <div><dt>2019</dt><dd><a class="academia-institution-link" href="https://www.heidenheim.dhbw.de/studium-lehre/studienkosten-finanzierung#stipendium" target="_blank" rel="noopener noreferrer" title="Seydlitz-Kurzbach scholarship at DHBW Heidenheim (opens in a new tab)" aria-label="Dr. Friedrich-Wilhelm von Seydlitz-Kurzbach scholarship at DHBW Heidenheim (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/dhbw-symbol.svg" alt="" width="16" height="16">Dr.</span> Friedrich-Wilhelm von Seydlitz-Kurzbach Scholarship&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a><br>Awarded for academic and extracurricular achievements.</dd></div>
+                          </dl>
+                        </div>
+                        <div class="academia-detail-group">
+                          <h3>University engagement</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Student Council</dt><dd>Head of Student Council, 2019–2021.<br>Finance Officer, 2018–2019.</dd></div>
+                            <div><dt>International Office</dt><dd>Student assistant for the <span lang="de">„Ankunft und Studienerfolg“</span> project, 2020–2021.</dd></div>
+                          </dl>
+                        </div>
+                      </div>
+                    </details>
+                  </article>
+                  <article class="academia-entry" aria-labelledby="academia-ksh-title">
+                    <p class="academia-date">2015–2017</p>
+                    <h2 id="academia-ksh-title"><a class="academia-heading-link" href="https://www.ks-heidenheim.de" target="_blank" rel="noopener noreferrer" title="KSH Commercial Business School (opens in a new tab)" aria-label="KSH Commercial Business School website (opens in a new tab)">KSH Commercial Business School <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                    <p class="academia-field">Vocational education · Banking</p>
+                    <p class="academia-description">The school-based part of my banking apprenticeship.</p>
+                    <details class="academia-details">
+                      <summary aria-label="Details of my vocational education at KSH">Details <span class="details-toggle" aria-hidden="true"></span></summary>
+                      <div class="accordion-content">
+                        <div class="academia-detail-group">
+                          <h3>Academic details</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Study period</dt><dd>Sep 2015–Dec 2017</dd></div>
+                            <div><dt>Final grade</dt><dd>1.0 · German grading scale</dd></div>
+                            <div><dt>Language certificate</dt><dd>2017 · KMK Foreign Language Certificate · English for Banking · Level II (B1)<br>Score: 120/130 (92.3%)</dd></div>
+                          </dl>
+                        </div>
+                        <div class="academia-detail-group">
+                          <h3>Awards &amp; scholarships</h3>
+                          <dl class="academia-facts">
+                            <div><dt>2019</dt><dd><a class="academia-institution-link" href="https://www.weiterbildung.ostwuerttemberg.ihk.de/produktmarken/beratung-foerderung/foerderungenweiterbildung-5760320" target="_blank" rel="noopener noreferrer" title="Continuing Education Scholarship information at IHK Ostwürttemberg (opens in a new tab)" aria-label="Continuing Education Scholarship information at IHK Ostwürttemberg (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/ihk-favicon.ico" alt="" width="16" height="16">German</span> Federal Ministry of Education and Research · Talent Program&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a><br>Continuing Education Scholarship · Awarded through IHK Ostwürttemberg</dd></div>
+                            <div><dt>2017</dt><dd>IHK Award for Outstanding Performance<br>IHK Ostwürttemberg</dd></div>
+                            <div><dt>2017</dt><dd>Special Award in Social Studies<br>Heidenheim District</dd></div>
+                          </dl>
+                        </div>
+                        <div class="academia-detail-group">
+                          <h3>Outreach &amp; engagement</h3>
+                          <dl class="academia-facts">
+                            <div><dt>Apprenticeship Ambassador</dt><dd><a class="academia-institution-link" href="https://www.ihk.de/ostwuerttemberg/produktmarken/aus-und-weiterbildung/ausbildung/berufsorientierung/ausbildungsbotschafter-was-steckt-dahinter-3295834" target="_blank" rel="noopener noreferrer" title="IHK Ostwürttemberg apprenticeship ambassador program (opens in a new tab)" aria-label="IHK Ostwürttemberg apprenticeship ambassador program (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/ihk-favicon.ico" alt="" width="16" height="16">IHK</span> Ostwürttemberg&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a><br>Working with the IHK and university student ambassadors, I visited schools to help students explore vocational training and university study options.</dd></div>
+                          </dl>
+                        </div>
+                      </div>
+                    </details>
+                    <div class="academia-international">
+                      <h3>International study</h3>
+                      <ul class="academia-course-list">
+                        <li>
+                          <span class="academia-list-date">2017</span>
+                          <div>
+                            <h4 class="academia-list-title"><a class="academia-heading-link" href="https://www.hadeland.vgs.no/" target="_blank" rel="noopener noreferrer" title="Hadeland videregående skole (opens in a new tab)" aria-label="Hadeland videregående skole website (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/hadeland-favicon.png" alt="" width="16" height="16">Hadeland</span> videregående skole&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a></h4>
+                            <p>School exchange</p>
+                            <p class="academia-list-location">Gran, Norway</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article class="academia-entry" aria-labelledby="academia-weg-title">
+                    <p class="academia-date">2006–2014</p>
+                    <h2 id="academia-weg-title"><a class="academia-heading-link" href="https://www.werkgymnasium.de" target="_blank" rel="noopener noreferrer" title="Werkgymnasium Heidenheim (opens in a new tab)" aria-label="Werkgymnasium Heidenheim website (opens in a new tab)">Werkgymnasium Heidenheim <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                    <p class="academia-field">Abitur · German university entrance qualification</p>
+                    <p class="academia-description">I was especially drawn to economics and experimental science, where lab work, fieldwork, and independent projects brought biology, chemistry, and physics together.</p>
+                    <details class="academia-details">
+                      <summary aria-label="Details of my Abitur at Werkgymnasium Heidenheim">Details <span class="details-toggle" aria-hidden="true"></span></summary>
+                      <div class="accordion-content">
+                        <dl class="academia-facts">
+                          <div><dt>Advanced courses</dt><dd>Mathematics, German, English, Physics (bilingual German/English), Economics, and Experimental Science.</dd></div>
+                          <div><dt>Final grade</dt><dd>2.3 · German grading scale</dd></div>
+                          <div><dt>Languages</dt><dd>English: CEFR B2, partly C1<br>French: CEFR B1</dd></div>
+                        </dl>
+                      </div>
+                    </details>
+                    <div class="academia-international">
+                      <h3>International study</h3>
+                      <ul class="academia-course-list">
+                        <li>
+                          <span class="academia-list-date">2010</span>
+                          <div>
+                            <h4 class="academia-list-title"><a class="academia-heading-link" href="https://northview.fultonschools.org/" target="_blank" rel="noopener noreferrer" title="Northview High School (opens in a new tab)" aria-label="Northview High School website (opens in a new tab)"><span class="institution-link-start"><img class="institution-favicon" src="assets/northview-logo.webp" alt="" width="16" height="16">Northview</span> High School&nbsp;<span class="institution-link-arrow" aria-hidden="true">↗</span></a></h4>
+                            <p>School exchange</p>
+                            <p class="academia-list-location">Georgia, United States</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </section>
+                <section class="academia-chapter" id="academia-learning" role="tabpanel" aria-labelledby="academia-tab-learning" tabindex="0" hidden>
+                  <article class="academia-entry" aria-labelledby="academia-frankfurt-title">
+                    <p class="academia-date">2023–2024</p>
+                    <h2 id="academia-frankfurt-title"><a class="academia-heading-link" href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer" title="Frankfurt School of Finance and Management (opens in a new tab)" aria-label="Frankfurt School of Finance and Management website (opens in a new tab)">Frankfurt School of Finance and Management <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                    <p class="academia-field">Corporate Banking Professional · Certificate Program</p>
+                    <p class="academia-description">Corporate banking in practice, from analyzing financial statements and assessing credit risk to structuring financing solutions.</p>
+                    <details class="academia-details">
+                      <summary aria-label="Details of my Corporate Banking Professional certificate program at Frankfurt School">Details <span class="details-toggle" aria-hidden="true"></span></summary>
+                      <div class="accordion-content">
+                        <dl class="academia-facts">
+                          <div><dt>Final grade</dt><dd>1.0 · German grading scale</dd></div>
+                        </dl>
+                      </div>
+                    </details>
+                  </article>
+                  <ul class="academia-course-list">
+                    <li>
+                      <time class="academia-list-date" datetime="2026-04">2026</time>
+                      <div>
+                        <h2 class="academia-list-title"><a class="academia-heading-link" href="https://learn.microsoft.com/en-us/users/christian-j-heinze/credentials/e23b390384cbd648" target="_blank" rel="noopener noreferrer" title="View Microsoft Certified: Power BI Data Analyst Associate credential (opens in a new tab)" aria-label="View Microsoft Certified: Power BI Data Analyst Associate credential (opens in a new tab)">Microsoft Certified: Power BI Data Analyst Associate <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                        <p>Microsoft</p>
+                        <p>Credential ID E23B390384CBD648</p>
+                      </div>
+                    </li>
+                    <li>
+                      <time class="academia-list-date" datetime="2025-08">2025</time>
+                      <div>
+                        <h2 class="academia-list-title"><a class="academia-heading-link" href="https://learn.microsoft.com/en-us/users/christian-j-heinze/credentials/77a919060e97466d" target="_blank" rel="noopener noreferrer" title="View Microsoft Certified: Power Platform Fundamentals credential (opens in a new tab)" aria-label="View Microsoft Certified: Power Platform Fundamentals credential (opens in a new tab)">Microsoft Certified: Power Platform Fundamentals <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                        <p>Microsoft</p>
+                        <p>Credential ID 77A919060E97466D</p>
+                      </div>
+                    </li>
+                    <li>
+                      <time class="academia-list-date" datetime="2024-07">2024</time>
+                      <div>
+                        <h2 class="academia-list-title"><a class="academia-heading-link" href="https://www.credly.com/badges/502ed70e-70a1-4979-8437-50726bac96b3/public_url" target="_blank" rel="noopener noreferrer" title="View McKinsey Forward Program credential (opens in a new tab)" aria-label="View McKinsey Forward Program credential (opens in a new tab)">McKinsey Forward Program <span class="institution-link-arrow" aria-hidden="true">↗</span></a></h2>
+                        <p>McKinsey &amp; Company</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="academia-list-date">2022</span>
+                      <div><h2 class="academia-list-title">TOEFL iBT 114/120 (C2)</h2><p>ETS · Credential ID 1955 3022 2562 6917</p></div>
+                    </li>
+                    <li>
+                      <time class="academia-list-date" datetime="2021-11">2021</time>
+                      <div><h2 class="academia-list-title">Certified Specialist in Climate Adaptation Finance</h2><p>Frankfurt School of Finance &amp; Management</p></div>
+                    </li>
+                    <li>
+                      <time class="academia-list-date" datetime="2020-02">2020</time>
+                      <div><h2 class="academia-list-title">Certified Specialist in Artificial Intelligence for Business</h2><p>Frankfurt School of Finance &amp; Management</p></div>
+                    </li>
+                    <li>
+                      <time class="academia-list-date" datetime="2019-11">2019</time>
+                      <div><h2 class="academia-list-title">Training qualification (AEVO)</h2><p>IHK Ostwürttemberg</p></div>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="experience-content" id="experience-content" data-section="experience" hidden>
+            <div class="experience-layout">
+              <aside class="experience-sidebar" aria-label="Career timeline">
+                <div class="experience-dates" aria-hidden="true">
+                  <div class="experience-period is-active">
+                    <span class="experience-year">2025</span>
+                    <span class="experience-until">— present</span>
+                  </div>
+                  <div class="experience-period">
+                    <span class="experience-year">2021</span>
+                    <span class="experience-until">— 2024</span>
+                  </div>
+                  <div class="experience-period">
+                    <span class="experience-year">2015</span>
+                    <span class="experience-until">— 2021</span>
+                  </div>
+                  <div class="experience-period">
+                    <span class="experience-year">2014</span>
+                    <span class="experience-until">— 2015</span>
+                  </div>
+                  <div class="experience-period">
+                    <span class="experience-year">2014</span>
+                  </div>
+                </div>
+                <div class="experience-navigation">
+                  <div class="experience-scale">
+                    <div class="timeline-track" role="slider" tabindex="0" aria-label="Career timeline" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Present · Deloitte" aria-controls="experience-entries" title="Drag or use arrow keys to explore the career timeline"></div>
+                    <div class="timeline-axis" aria-hidden="true"></div>
+                  </div>
+                  <nav aria-label="Jump to a career chapter">
+                    <ol class="experience-timeline">
+                      <li data-career="deloitte"><button type="button" data-experience-target="experience-deloitte" aria-controls="experience-deloitte" aria-current="step" aria-label="Deloitte, 2025 to present"><span class="timeline-company">Deloitte</span></button></li>
+                      <li data-career="vr-bank"><button type="button" data-experience-target="experience-vr-bank" aria-controls="experience-vr-bank" aria-label="VR-Bank, 2021 to 2024"><span class="timeline-company">VR-Bank</span></button></li>
+                      <li data-career="sparkasse"><button type="button" data-experience-target="experience-sparkasse" aria-controls="experience-sparkasse" aria-label="Sparkasse, 2015 to 2021"><span class="timeline-company">Sparkasse</span></button></li>
+                      <li data-career="fsj"><button type="button" data-experience-target="experience-fsj" aria-controls="experience-fsj" aria-label="Voluntary Social Year, September 2014 to August 2015"><span class="timeline-company">FSJ</span></button></li>
+                      <li data-career="zeiss"><button type="button" data-experience-target="experience-zeiss" aria-controls="experience-zeiss" aria-label="Carl Zeiss AG, 2014"><span class="timeline-company">ZEISS</span></button></li>
+                    </ol>
+                  </nav>
+                </div>
+              </aside>
+              <div class="experience-entries" id="experience-entries">
+                <article class="experience-entry" id="experience-deloitte" data-career="deloitte" data-start="2025-01" data-end="present" aria-labelledby="experience-deloitte-title" tabindex="-1">
+                  <p class="experience-entry-date">2025–present</p>
+                  <h2 id="experience-deloitte-title"><a class="experience-company" href="https://www.deloitte.com/global/en.html" target="_blank" rel="noopener noreferrer" aria-label="Deloitte website (opens in a new tab)">Deloitte <span aria-hidden="true">↗</span></a></h2>
+                  <p class="experience-field">Management Consulting</p>
+                  <p class="experience-description">Project management is at the core of my work in financial services. My projects focus on real estate and data, with additional work on lending and banking processes.</p>
+                  <details class="experience-roles">
+                    <summary aria-label="The individual roles at Deloitte">The individual roles <span class="details-toggle" aria-hidden="true"></span></summary>
+                    <div class="accordion-content">
+                      <ol class="experience-role-list">
+                        <li>
+                          <p class="experience-role-date">Dec 2025–present</p>
+                          <h3>Senior Consultant</h3>
+                          <p>I help develop data products and shape new projects around client needs. My work on project scope, business cases, and proposals has helped secure new client work.</p>
+                        </li>
+                        <li>
+                          <p class="experience-role-date">Jan 2025–Nov 2025</p>
+                          <h3>Consultant</h3>
+                          <p>I coordinated stakeholders across a major project and prepared the reporting and decision papers used to steer it. I also supported bank integration, process standardization, and credit reviews.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </article>
+                <article class="experience-entry" id="experience-vr-bank" data-career="vr-bank" data-start="2021-10" data-end="2025-01" aria-labelledby="experience-vr-bank-title" tabindex="-1">
+                  <p class="experience-entry-date">2021–2024</p>
+                  <h2 id="experience-vr-bank-title"><a class="experience-company" href="https://www.vr.de/" target="_blank" rel="noopener noreferrer" aria-label="Volksbanken Raiffeisenbanken website (opens in a new tab)">VR-Bank <span aria-hidden="true">↗</span></a></h2>
+                  <p class="experience-field">Corporate banking &amp; real estate finance</p>
+                  <p class="experience-description">Advised corporate clients and worked on real estate finance and loan brokerage. Direct client work, with responsibility for relationships and financing needs.</p>
+                  <details class="experience-roles">
+                    <summary aria-label="The individual roles at VR-Bank">The individual roles <span class="details-toggle" aria-hidden="true"></span></summary>
+                    <div class="accordion-content">
+                      <ol class="experience-role-list">
+                        <li>
+                          <p class="experience-role-date">Oct 2023–Dec 2024</p>
+                          <h3>Corporate Banking Advisor</h3>
+                          <p>Advised corporate clients on financing, leasing, payments, investments, and insurance. Continued coordinating loan brokerage alongside the broader advisory role.</p>
+                        </li>
+                        <li>
+                          <p class="experience-role-date">Oct 2021–Sep 2023</p>
+                          <h3>Real Estate Finance Advisor</h3>
+                          <p>Advised on real estate financing and coordinated loan brokerage with clients, brokers, external lenders, and internal teams.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </article>
+                <article class="experience-entry" id="experience-sparkasse" data-career="sparkasse" data-start="2015-09" data-end="2021-10" aria-labelledby="experience-sparkasse-title" tabindex="-1">
+                  <p class="experience-entry-date">2015–2021</p>
+                  <h2 id="experience-sparkasse-title"><a class="experience-company" href="https://www.sparkasse.de/" target="_blank" rel="noopener noreferrer" aria-label="Sparkasse website (opens in a new tab)">Sparkasse <span aria-hidden="true">↗</span></a></h2>
+                  <p class="experience-field">Retail banking &amp; investment advice</p>
+                  <p class="experience-description">Started with a banking apprenticeship, then moved into retail client advice. Later specialized in securities and took on responsibility for youth banking, alongside my dual degree.</p>
+                  <details class="experience-roles">
+                    <summary aria-label="The individual roles at Sparkasse">The individual roles <span class="details-toggle" aria-hidden="true"></span></summary>
+                    <div class="accordion-content">
+                      <ol class="experience-role-list">
+                        <li>
+                          <p class="experience-role-date">Apr 2021–Sep 2021</p>
+                          <h3>Personal Banking Advisor &amp; Youth Banking Lead</h3>
+                          <p>Securities specialist and responsibility for youth banking in Herbrechtingen, Bolheim and Dettingen. Part-time alongside my dual degree.</p>
+                        </li>
+                        <li>
+                          <p class="experience-role-date">Jan 2018–Apr 2021</p>
+                          <h3>Retail Banking Advisor</h3>
+                          <p>Client advice and branch service. Initially full-time, then part-time alongside my dual degree.</p>
+                        </li>
+                        <li>
+                          <p class="experience-role-date">Sep 2015–Jan 2018</p>
+                          <h3>Banking Apprenticeship</h3>
+                          <p>Completed a banking apprenticeship and qualified as Bankkaufmann (IHK).</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </article>
+                <article class="experience-entry" id="experience-fsj" data-career="fsj" data-start="2014-09" data-end="2015-09" aria-labelledby="experience-fsj-title" tabindex="-1">
+                  <p class="experience-entry-date">2014–2015</p>
+                  <h2 id="experience-fsj-title"><a class="experience-company" href="https://pflegeteam-stefanie.de" target="_blank" rel="noopener noreferrer" aria-label="Voluntary Social Year, Pflegeteam Stefanie website (opens in a new tab)">Voluntary Social Year <span aria-hidden="true">↗</span></a></h2>
+                  <p class="experience-field">Community elderly care</p>
+                  <p class="experience-description">Worked as a care assistant in community elderly care, supporting older people throughout their daily routines.</p>
+                  <details class="experience-roles">
+                    <summary aria-label="The individual roles in elderly care">The individual roles <span class="details-toggle" aria-hidden="true"></span></summary>
+                    <div class="accordion-content">
+                      <ol class="experience-role-list">
+                        <li>
+                          <p class="experience-role-date">Sep 2015–Dec 2016</p>
+                          <h3>Care Assistant</h3>
+                          <p>Part-time alongside my banking apprenticeship.</p>
+                        </li>
+                        <li>
+                          <p class="experience-role-date">Sep 2014–Aug 2015</p>
+                          <h3>Voluntary Social Year (FSJ)</h3>
+                          <p>My work covered the day-to-day duties of a care assistant.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </article>
+                <article class="experience-entry" id="experience-zeiss" data-career="zeiss" data-start="2014-08" data-end="2014-09" aria-labelledby="experience-zeiss-title" tabindex="-1">
+                  <p class="experience-entry-date">2014</p>
+                  <h2 id="experience-zeiss-title"><a class="experience-company" href="https://www.zeiss.com/corporate/en/home.html" target="_blank" rel="noopener noreferrer" aria-label="ZEISS website (opens in a new tab)">Carl Zeiss AG <span aria-hidden="true">↗</span></a></h2>
+                  <p class="experience-field">Summer job · Chemistry lab</p>
+                  <p class="experience-description">A summer job in a chemistry lab at ZEISS was my first encounter with corporate life after school. Just one month, learning as I went — but an experience that stayed with me.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="perspectives-content" data-section="perspectives" hidden>
+            <article class="perspective-post" aria-label="A philosophy class at the University of Florida">
+              <header class="perspective-post-header">
+                <span class="perspective-post-avatar" aria-hidden="true"></span>
+                <div>
+                  <p class="perspective-post-author">Christian J. Heinze</p>
+                  <p class="perspective-post-headline">FSI @ Deloitte · M.Sc. Finance · HHL · ESCP</p>
+                  <time class="perspective-post-year" datetime="2026-10-08">2026</time>
+                </div>
+              </header>
+              <div class="perspective-post-text">
+                <p>During a visit to the University of Florida, I joined a philosophy class on “The Epistemology of Desire”—exploring beliefs, desires, and how we understand and justify them.</p>
+                <p>What stayed with me was the teaching itself: a mix of carefully prepared lectures and constant interaction that brought everyone into the discussion. I took home a few ideas for my own teaching at DHBW. Go Gators!</p>
+              </div>
+              <a class="perspective-post-preview" data-artifact="university-of-florida" href="https://www.linkedin.com/feed/update/urn:li:activity:7513947552908677120/" target="_blank" rel="noopener noreferrer" title="Read the original post on LinkedIn (opens in a new tab)" aria-label="Read my original post about visiting the University of Florida on LinkedIn (opens in a new tab)">
+                <span class="perspective-post-photo-pair">
+                  <img src="photos/1791423206141.jpeg" alt="Sitting at a table with class notes in front of bookshelves at the University of Florida." width="800" height="800" loading="lazy" decoding="async">
+                  <img src="photos/1791423207901.jpeg" alt="Standing beside the Griffin-Floyd Hall sign at the University of Florida." width="480" height="853" loading="lazy" decoding="async">
+                </span>
+                <span class="perspective-post-link-label">
+                  <span class="perspective-post-link-site"><img class="perspective-post-favicon" src="assets/LinkedIn_icon.svg" alt="" width="16" height="16"><span>Read the original post on LinkedIn</span></span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </article>
+            <article class="perspective-post" aria-label="Deloitte webcast on data quality in banking">
+              <header class="perspective-post-header">
+                <span class="perspective-post-avatar" aria-hidden="true"></span>
+                <div>
+                  <p class="perspective-post-author">Christian J. Heinze</p>
+                  <p class="perspective-post-headline">FSI @ Deloitte · M.Sc. Finance · HHL · ESCP</p>
+                  <time class="perspective-post-year" datetime="2026-04-16">2026</time>
+                </div>
+              </header>
+              <div class="perspective-post-text">
+                <p>My first Deloitte webcast as a speaker explored data quality in banking.</p>
+                <p>My focus was on how better data can improve sales and give advisors real support in their day-to-day work, instead of becoming another source of frustration.</p>
+              </div>
+              <a class="perspective-post-preview" data-artifact="deloitte-webcast" href="https://www.deloitte.com/de/de/services/consulting/events/sparkassen-finanzgruppen-talk-webcastreihe.html" target="_blank" rel="noopener noreferrer" aria-label="Details on deloitte.com: Data Quality in Banking (opens in a new tab)">
+                <img src="photos/thumbnail-webcast-data-static.png" alt="" width="1680" height="2376" loading="lazy" decoding="async">
+                <span class="perspective-post-link-label">
+                  <span class="perspective-post-link-site">
+                    <svg class="perspective-post-favicon perspective-post-favicon-deloitte" viewBox="0 0 64 64" width="16" height="16" aria-hidden="true" focusable="false">
+                      <g transform="translate(9 11) scale(1.2)">
+                        <path fill="currentColor" d="M27.6,16.1c0,5.6-1.4,9.8-4.4,12.8s-7.2,4.5-12.6,4.5H0V0.1h11.2c5.3,0,9.3,1.3,12.1,4.1C26.2,6.9,27.6,10.9,27.6,16.1 M18.4,16.4c0-3.1-0.6-5.3-1.8-6.8c-1.1-1.4-3-2.2-5.4-2.2H8.8v18.6h2c2.7,0,4.6-0.8,5.9-2.4C17.8,22,18.4,19.6,18.4,16.4"/>
+                        <path fill="#86BC25" transform="translate(-143 0)" d="M171.8,29c0-2.7,2.2-4.8,4.8-4.8c2.7,0,4.8,2.2,4.8,4.8s-2.2,4.8-4.8,4.8S171.8,31.7,171.8,29"/>
+                      </g>
+                    </svg>
+                    <span>Details on deloitte.com</span>
+                  </span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </article>
+            <article class="perspective-post" aria-label="nordstern: a personal finance dashboard built with AI">
+              <header class="perspective-post-header">
+                <span class="perspective-post-avatar" aria-hidden="true"></span>
+                <div>
+                  <p class="perspective-post-author">Christian J. Heinze</p>
+                  <p class="perspective-post-headline">FSI @ Deloitte · M.Sc. Finance · HHL · ESCP</p>
+                  <time class="perspective-post-year" datetime="2026">2026</time>
+                </div>
+              </header>
+              <div class="perspective-post-text">
+                <p>About ten years ago, <a href="https://www.reddit.com/r/personalfinance/comments/55tkjk/ive_been_tracking_my_net_worth_for_7_years/" target="_blank" rel="noopener noreferrer" aria-label="Read the post on r/personalfinance that inspired my monthly net worth tracking (opens in a new tab)"><img class="perspective-post-favicon perspective-post-favicon-inline" src="assets/reddit-favicon.png" alt="" width="16" height="16">a post on r/personalfinance</a> got me into tracking my net worth every month. I've kept it up ever since.</p>
+                <p>As a little personal project, and with help from Codex and Claude Code, I built nordstern, my own dashboard for exploring those monthly snapshots and seeing how my finances have changed over time.</p>
+              </div>
+              <a class="perspective-post-preview" data-artifact="nordstern" href="https://chrisjohe.github.io/nordstern/" target="_blank" rel="noopener noreferrer" aria-label="Explore nordstern, hosted on GitHub Pages (opens in a new tab)">
+                <img class="perspective-post-mountain" src="assets/nordstern-mountain.png" alt="nordstern's contour mountain with an illuminated route, financial milestones, and a compass ring." width="1127" height="785" loading="lazy" decoding="async">
+                <span class="perspective-post-link-label">
+                  <span class="perspective-post-link-site"><img class="perspective-post-favicon perspective-post-favicon-github" src="assets/github-favicon.ico" alt="" width="16" height="16"><span>Explore nordstern (hosted on GitHub Pages)</span></span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </article>
+            <article class="perspective-post" aria-label="My master's thesis on valuing virtual assets">
+              <header class="perspective-post-header">
+                <span class="perspective-post-avatar" aria-hidden="true"></span>
+                <div>
+                  <p class="perspective-post-author">Christian J. Heinze</p>
+                  <p class="perspective-post-headline">FSI @ Deloitte · M.Sc. Finance · HHL · ESCP</p>
+                  <time class="perspective-post-year" datetime="2025">2025</time>
+                </div>
+              </header>
+              <div class="perspective-post-text">
+                <p>For my master's thesis, I explored whether option pricing theory could explain the value of digital assets such as tradable loot boxes in video games.</p>
+                <p>I also explored the role of scarcity, player behavior, and the enjoyment attached to virtual items.</p>
+              </div>
+              <a class="perspective-post-preview" data-artifact="thesis" href="#academia" data-section-target="academia" aria-label="Read about my studies in Academia">
+                <img class="perspective-post-image-dark" src="assets/thesis-thumbnail.svg" alt="Daily CS:GO Weapon Case prices and trading volume from September 2013 to April 2025." width="1200" height="675" loading="lazy" decoding="async">
+                <img class="perspective-post-image-light" src="assets/thesis-thumbnail-light.svg" alt="Daily CS:GO Weapon Case prices and trading volume from September 2013 to April 2025." width="1200" height="675" loading="lazy" decoding="async">
+                <span class="perspective-post-link-label">
+                  <span class="perspective-post-link-site"><img class="perspective-post-favicon" src="assets/favicon.svg" alt="" width="16" height="16"><span>More in Academia</span></span>
+                  <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </article>
+          </div>
+          <div class="elsewhere-content" data-section="elsewhere" hidden>
+            <section class="elsewhere-hero" aria-labelledby="elsewhere-intro">
+              <div class="elsewhere-intro">
+                <h2 id="elsewhere-intro">A few other<br><em class="text-highlight">directions.</em></h2>
+                <p>Places, worlds, and the things in between.</p>
+              </div>
+              <div class="elsewhere-road" aria-hidden="true"><canvas id="elsewhere-road"></canvas><p class="elsewhere-road-fallback" hidden>The road animation isn't available in this browser.</p></div>
+            </section>
+            <div class="elsewhere-chapters">
+              <section class="elsewhere-chapter" aria-labelledby="community-title">
+                <h2 id="community-title">Community &amp; Volunteering</h2>
+                <p class="elsewhere-description">Alongside work and university, I’ve been involved in student representation, sports, and local communities. Today, I volunteer as an examiner for vocational training in banking.</p>
+                <details class="experience-roles elsewhere-volunteering">
+                  <summary aria-label="My individual community and volunteering roles">The individual roles <span class="details-toggle" aria-hidden="true"></span></summary>
+                  <div class="accordion-content" id="community-roles">
+                    <ul class="experience-role-list">
+                      <li>
+                        <p class="experience-role-date">2025–present</p>
+                        <h3>Examiner</h3>
+                        <p>IHK Ostwürttemberg</p>
+                        <p>I serve on the examination board for vocational training in banking.</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2021–2025</p>
+                        <h3>City Group Co-Lead</h3>
+                        <p>e-fellows.net</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2022–2024</p>
+                        <h3>Class Representative</h3>
+                        <p>HHL Leipzig</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2017–2024</p>
+                        <h3>Head of Department</h3>
+                        <p>TSG Schnaitheim 1874 e.V.</p>
+                        <p class="elsewhere-recognition">WLSB Bronze Honorary Pin · 2024</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2022–2023</p>
+                        <h3>Operations Team Member</h3>
+                        <p>TEDxHHL</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2020–2021</p>
+                        <h3>Student Representative</h3>
+                        <p>Forum for Integration · City of Heidenheim</p>
+                        <p>Invited to attend and contribute to meetings in my role as Head of Student Council.</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2019–2021</p>
+                        <h3>Head of Student Council</h3>
+                        <p>DHBW Heidenheim</p>
+                      </li>
+                      <li>
+                        <p class="experience-role-date">2018–2019</p>
+                        <h3>Finance Officer</h3>
+                        <p>Student Council · DHBW Heidenheim</p>
+                      </li>
+                      <li>
+                        <h3>Apprenticeship Ambassador</h3>
+                        <p>IHK Ostwürttemberg</p>
+                        <p>Working with the IHK and university student ambassadors, I visited schools to help students explore vocational training and university study options.</p>
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+          <div class="contact-content" id="contact-content" data-section="contact" data-heading="Let’s talk." hidden>
+            <div class="contact-object">
+              <div class="lanyard-stage" id="contact-lanyard" aria-label="Christian’s personal name badge">
+                <div class="lanyard-fallback">
+                  <div class="lanyard-fallback-band" aria-hidden="true"></div>
+                  <div class="lanyard-fallback-clip" aria-hidden="true"></div>
+                  <div class="lanyard-fallback-card">
+                    <span class="lanyard-fallback-handle">@chrisjohe</span>
+                    <img src="assets/lanyard/profile-paper.png" alt="Christian’s portrait as a black-and-white paper cutout." loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-copy">
+              <h2>It starts with<br><em class="text-highlight">a hello.</em></h2>
+              <p class="contact-intro">A question, an idea, or just a hello.<br>You don’t need a reason to reach out.</p>
+              <nav class="contact-profile-links" aria-label="Ways to connect">
+                <a href="https://www.linkedin.com/in/christian-j-heinze/" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn (opens in a new tab)" aria-label="Connect on LinkedIn (opens in a new tab)">
+                  <span><span class="contact-link-name">Connect on LinkedIn&nbsp;<span class="contact-link-arrow" aria-hidden="true">↗</span></span><span class="contact-link-description">Say hello and let’s see where it goes.</span></span>
+                  <span class="contact-icon contact-icon-linkedin" aria-hidden="true"></span>
+                </a>
+                <a href="https://github.com/chrisjohe" target="_blank" rel="noopener noreferrer" title="Explore my GitHub (opens in a new tab)" aria-label="Explore my GitHub (opens in a new tab)">
+                  <span><span class="contact-link-name">Explore my GitHub&nbsp;<span class="contact-link-arrow" aria-hidden="true">↗</span></span><span class="contact-link-description">Experiments, ideas and things off the top of my head.</span></span>
+                  <span class="contact-icon contact-icon-github" aria-hidden="true"></span>
+                </a>
+                <a href="https://www.instagram.com/chrisjohe/" target="_blank" rel="noopener noreferrer" title="Find me on Instagram (opens in a new tab)" aria-label="Find me on Instagram (opens in a new tab)">
+                  <span><span class="contact-link-name">Find me on Instagram&nbsp;<span class="contact-link-arrow" aria-hidden="true">↗</span></span><span class="contact-link-description">A little beyond work.</span></span>
+                  <span class="contact-icon contact-icon-instagram" aria-hidden="true"></span>
+                </a>
+                <a href="https://www.strava.com/athletes/179605913" target="_blank" rel="noopener noreferrer" title="Catch me on Strava (opens in a new tab)" aria-label="Catch me on Strava (opens in a new tab)">
+                  <span><span class="contact-link-name">Catch me on Strava&nbsp;<span class="contact-link-arrow" aria-hidden="true">↗</span></span><span class="contact-link-description">What keeps me moving.</span></span>
+                  <span class="contact-icon contact-icon-strava" aria-hidden="true"></span>
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div class="section-content" data-section="about" data-heading="About this website" hidden>
+            <p>A personal website by Christian J. Heinze.</p>
+            <p>This website is solely for personal, non-commercial purposes. No goods, products or content are offered for a fee or sold through this website.</p>
+
+            <h2>Legal notice</h2>
+            <p>This website is operated by Christian J. Heinze. For inquiries, please use the contact options below.</p>
+
+            <h2>Contact</h2>
+            <p><a data-email-user="hey.cj" data-email-domain="icloud.com"><img class="link-favicon link-favicon-mono" src="assets/mail_40dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="" width="16" height="16"></a></p>
+            <p><a href="https://www.linkedin.com/in/christian-j-heinze/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Christian on LinkedIn (opens in a new tab)"><img class="link-favicon" src="assets/LinkedIn_icon.svg" alt="" width="16" height="16">Connect with Christian on LinkedIn</a></p>
+
+            <h2>Independent perspective</h2>
+            <p>This is a personal website. It does not represent any organization mentioned here.</p>
+
+            <h2>Privacy</h2>
+            <p>Christian J. Heinze is responsible for this website under the GDPR. You can contact him using the options in the Contact section above.</p>
+            <p>This site uses no analytics, advertising, tracking cookies or contact forms. Fonts and images are served with the site. Following an external link takes you to a separate website with its own privacy policy.</p>
+            <p>The GitHub Pages hosting service uses internationally distributed infrastructure. Visitor data may be stored and processed in the United States and other countries. GitHub Pages logs and stores visitors’ IP addresses for security purposes. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" aria-label="GitHub’s privacy statement (opens in a new tab)"><img class="link-favicon link-favicon-mono" src="assets/github-logo.svg" alt="" width="16" height="16">GitHub’s privacy statement</a> for details.</p>
+
+            <h2>Photography</h2>
+            <p>HHL Graduation 2024 photograph, shown on the Academia card: © Jens Schlüter.</p>
+            <p>All other photographs: © Christian J. Heinze. All rights reserved.</p>
+            <p>Photographs may not be copied, downloaded, shared or otherwise used, whether for private or commercial purposes, without prior written permission.</p>
+
+            <h2>Fonts &amp; Icons</h2>
+            <p>Set in Newsreader by Production Type, licensed under the <a href="https://openfontlicense.org" target="_blank" rel="noopener noreferrer" aria-label="SIL Open Font License 1.1 (opens in a new tab)">SIL Open Font License 1.1</a>.</p>
+            <p>Interface icons from Google’s Material Symbols, licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" aria-label="Apache License 2.0 (opens in a new tab)">Apache License 2.0</a>.</p>
+            <p>The interactive name badge is adapted from <a href="https://reactbits.dev/components/lanyard" target="_blank" rel="noopener noreferrer">React Bits</a> by David Haz and uses <a href="https://threejs.org/" target="_blank" rel="noopener noreferrer">Three.js</a>. All code is hosted with this website. <a href="assets/lanyard/vendor/react-bits-LICENSE.md" target="_blank" rel="noopener noreferrer">React Bits license</a> · <a href="assets/lanyard/vendor/three-LICENSE.txt" target="_blank" rel="noopener noreferrer">Three.js license</a>.</p>
+
+            <h2>Logos &amp; Favicons</h2>
+            <p>The logos and favicons of LinkedIn, GitHub, Instagram, Strava, Reddit, Deloitte, DHBW, IHK Ostwürttemberg, Aalto University, Babson College, ESCP Business School, VWI, Hadeland videregående skole, and Northview High School belong to their respective owners and are used only to identify and link to the corresponding profiles, organizations, and pages.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© Christian J. Heinze</span>
+      <div class="footer-actions" role="group" aria-label="Appearance, animations, and information">
+        <button class="theme-toggle" type="button" aria-label="Switch color scheme" title="Switch color scheme">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+        <button class="motion-toggle" type="button" aria-label="Toggle animations" title="Toggle animations">
+          <span class="motion-icon" aria-hidden="true"></span>
+        </button>
+        <button class="about-button" type="button" aria-controls="section-view">About</button>
+      </div>
+    </footer>
+  </body>
+</html>

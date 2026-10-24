@@ -1,0 +1,253 @@
+.contact-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 96px);
+  width: auto;
+  max-width: 1140px;
+  margin: 24px 0 32px var(--section-content-inset, 0px);
+}
+
+.contact-object {
+  min-width: 0;
+  align-self: start;
+}
+
+.lanyard-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 70svh, 680px);
+  overflow: hidden;
+}
+
+.lanyard-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lanyard-canvas:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -4px;
+  border-radius: 12px;
+}
+
+.lanyard-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+}
+
+.lanyard-stage.is-ready .lanyard-fallback {
+  display: none;
+}
+
+.lanyard-fallback-band {
+  width: 25px;
+  height: 150px;
+  background: repeating-linear-gradient(0deg, #111 0 1px, #202020 1px 3px);
+  border-inline: 1px solid #303030;
+}
+
+.lanyard-fallback-clip {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 15px;
+  margin-top: -4px;
+  background: linear-gradient(110deg, #bbb, #707477, #c8cbcd);
+  border: 1px solid #a7abad;
+  border-radius: 3px;
+}
+
+.lanyard-fallback-clip::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  width: 12px;
+  height: 23px;
+  border: 3px solid #a7abad;
+  border-radius: 50%;
+}
+
+.lanyard-fallback-card {
+  position: relative;
+  width: min(72%, 280px);
+  aspect-ratio: 1.6 / 2.25;
+  margin-top: 8px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 7.3% / 5.2%;
+  background: #fff;
+}
+
+.lanyard-fallback-card::before {
+  content: "";
+  position: absolute;
+  top: 4.2%;
+  left: 39.4%;
+  width: 21.2%;
+  height: 3%;
+  border-radius: 20px;
+  background: #111;
+}
+
+.lanyard-fallback-handle {
+  position: absolute;
+  top: 5.5%;
+  right: 6.25%;
+  color: #858585;
+  font: clamp(9px, 2.3vw, 13px)/1 var(--font-sans);
+}
+
+.lanyard-fallback-card img {
+  position: absolute;
+  left: -12%;
+  bottom: 0;
+  width: 124%;
+  height: auto;
+  max-width: none;
+}
+
+.contact-copy {
+  min-width: 0;
+  padding: 40px 0;
+  color: var(--text-primary);
+}
+
+.contact-copy h2 {
+  margin: 0 0 34px;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5.4vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.contact-content.is-visible .text-highlight {
+  background-size: 100% 88%;
+}
+
+.contact-intro {
+  margin: 0 0 36px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.contact-profile-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 21px 0;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.contact-profile-links a:first-child {
+  border-top: 1px solid var(--border-strong);
+}
+
+.contact-profile-links a:hover .contact-link-name {
+  color: var(--text-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.contact-profile-links a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 4px;
+}
+
+.contact-link-name {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.contact-link-arrow {
+  display: inline-block;
+  color: var(--text-accent-muted);
+  font-family: var(--font-sans);
+  font-size: 0.65em;
+  vertical-align: middle;
+}
+
+.contact-link-description {
+  display: block;
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.contact-icon {
+  display: block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  background: var(--text-strong);
+  mask: var(--contact-icon) center / contain no-repeat;
+}
+
+.contact-icon-linkedin {
+  --contact-icon: url("../linkedin-logo-mono.svg");
+}
+
+.contact-icon-github {
+  --contact-icon: url("../github-logo.svg");
+}
+
+.contact-icon-instagram {
+  --contact-icon: url("../instagram-logo.svg");
+  flex-basis: 26px;
+  width: 26px;
+  height: 26px;
+  margin-inline: -1px;
+}
+
+.contact-icon-strava {
+  --contact-icon: url("../strava-logo.svg");
+}
+
+@media (max-width: 900px) {
+  .contact-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    max-width: 540px;
+    margin: 24px auto 32px;
+  }
+
+  .lanyard-stage {
+    height: 500px;
+  }
+
+  .contact-copy {
+    padding-top: 12px;
+  }
+
+  .contact-copy h2 {
+    font-size: clamp(2.65rem, 9vw, 4rem);
+  }
+
+  .contact-intro {
+    font-size: 0.9375rem;
+  }
+
+  .contact-profile-links a {
+    gap: 16px;
+  }
+}
+
+.contact-content[hidden] {
+  display: none;
+}

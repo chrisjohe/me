@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="currentColor">
+  <defs>
+    <mask id="strava-cutout" maskUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
+      <rect width="72" height="72" fill="#fff"/>
+      <g transform="translate(16.68 9.12) scale(.92)" fill="#000">
+        <path d="M29.2706 43.5683L24.1528 33.4854L16.5283 33.4982L29.2706 58.4349L41.9999 33.4854H34.3754L29.2706 43.5683Z"/>
+        <path d="M17.1812 19.9467L24.1529 33.4852H34.3755L17.1812 0L0 33.4852H10.2356L17.1812 19.9467Z"/>
+      </g>
+    </mask>
+  </defs>
+  <rect width="72" height="72" rx="8" mask="url(#strava-cutout)"/>
+</svg>
