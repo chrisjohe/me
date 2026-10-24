@@ -1493,6 +1493,7 @@ a.academia-institution-link:focus-visible {
   font-size: 2.75rem;
   line-height: 1;
   text-align: right;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 90%), 0 0 14px rgb(0 0 0 / 65%);
 }
 
 .card-title-vertical {
@@ -1674,17 +1675,18 @@ a.academia-institution-link:focus-visible {
   }
 
   .card-title-vertical {
+    font-size: 1.3125rem;
     writing-mode: horizontal-tb;
     transform: none;
   }
 
   .card-title {
-    font-size: clamp(1.6rem, 5vw, 1.9rem);
+    font-size: calc(clamp(1.6rem, 5vw, 1.9rem) + 0.0625rem);
     white-space: normal;
   }
 
   .card[data-card="portrait"] .card-title {
-    font-size: clamp(1.6rem, 6.2vw, 2.75rem);
+    font-size: calc(clamp(1.6rem, 6.2vw, 2.75rem) + 0.0625rem);
   }
 
   .card[data-card="portrait"] {
