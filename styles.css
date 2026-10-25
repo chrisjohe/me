@@ -1728,6 +1728,7 @@ a.academia-institution-link:focus-visible {
 @media (max-width: 900px) {
   :root {
     --page-padding: clamp(16px, 3vw, 28px);
+    scroll-padding-block: var(--page-padding) calc(var(--page-padding) + var(--footer-height) + var(--footer-fade-height));
   }
 
   body {
@@ -1735,8 +1736,9 @@ a.academia-institution-link:focus-visible {
   }
 
   .cards {
-    --card-height-closed: 64px;
-    --card-height-open: clamp(280px, 80vw, 360px);
+    --cards-height-available: calc(100svh - 2 * var(--page-padding) - var(--footer-height) - var(--footer-fade-height));
+    --card-height-closed: clamp(56px, calc((var(--cards-height-available) - 260px) / (var(--card-count) - 1) - var(--card-gap)), 64px);
+    --card-height-open: clamp(220px, calc(var(--cards-height-available) - (var(--card-count) - 1) * (var(--card-height-closed) + var(--card-gap))), clamp(280px, 80vw, 360px));
     flex-direction: column;
     max-width: 680px;
     height: calc(var(--card-height-open) + (var(--card-count) - 1) * (var(--card-height-closed) + var(--card-gap)));
@@ -1756,6 +1758,7 @@ a.academia-institution-link:focus-visible {
   }
 
   .card-title-vertical {
+    bottom: calc((var(--card-height-closed) - 1.1em) / 2);
     font-size: 1.3125rem;
     writing-mode: horizontal-tb;
     transform: none;
