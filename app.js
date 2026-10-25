@@ -51,8 +51,9 @@ const accordionAnimations = new Set();
 const motion = window.portraitMotion;
 const stackedLayout = window.matchMedia('(max-width: 900px)');
 const compactDetailLayout = window.matchMedia('(max-width: 900px), (max-height: 600px)');
-const curtainDuration = 660;
-const curtainSplit = 420 / curtainDuration;
+const cardExpandDuration = 180;
+const curtainDuration = 320;
+const curtainSplit = 200 / curtainDuration;
 const curtainEase = 'cubic-bezier(0.65, 0, 0.35, 1)';
 const navigationStateKey = 'cjPortraitNavigation';
 const sectionKeys = new Set(['about', ...cards.map(card => card.dataset.card)]);
@@ -68,7 +69,7 @@ let backPending = false;
 let sectionSwitchAnimation = null;
 let selectedCard = portraitCard;
 let curtainAnimations = [];
-let pausedTransitions = [];
+let openingTransitions = [];
 let pointerReady = true;
 let inputMode = 'mouse';
 let mousePosition = null;
@@ -235,9 +236,7 @@ function activateCard(activeCard) {
   if (view !== 'cards' || activeCard.classList.contains('is-active')) return;
 
   for (const card of cards) {
-    const isActive = card === activeCard;
-    card.classList.toggle('is-active', isActive);
-    card.setAttribute('aria-pressed', String(isActive));
+    card.classList.toggle('is-active', card === activeCard);
   }
 }
 
@@ -583,7 +582,6 @@ async function renderNavigation(entry, instant = false) {
         else window.scrollTo({ top: navigationEntry.scrollTop, behavior: 'instant' });
       } else if (view === 'cards') {
         const card = cards.find(card => card.dataset.card === navigationEntry.origin) ?? null;
-        if (card) activateCard(card);
         await openSection(card, navigationEntry, next.instant);
       } else {
         await switchSection(navigationEntry.key, navigationEntry);
@@ -726,6 +724,7 @@ async function switchSection(key, entry) {
 async function openSection(card, entry, instant = false) {
   if (view !== 'cards') return;
 
+  if (card) activateCard(card);
   view = 'opening';
   selectedCard = card;
   cardsScrollY = entry.overviewScrollTop;
@@ -735,10 +734,19 @@ async function openSection(card, entry, instant = false) {
   blurWithin(siteFooter);
   cardGroup.inert = true;
   siteFooter.inert = true;
-  pausedTransitions = cardGroup.getAnimations({ subtree: true }).filter(
+  openingTransitions = cardGroup.getAnimations({ subtree: true }).filter(
     animation => animation instanceof CSSTransition && animation.playState === 'running'
   );
-  for (const animation of pausedTransitions) animation.pause();
+  if (card && !instant && motion.enabled) {
+    for (const animation of openingTransitions) {
+      const remaining = animation.effect.getComputedTiming().endTime - (animation.currentTime ?? 0);
+      animation.updatePlaybackRate(Math.max(1, remaining / cardExpandDuration));
+    }
+    await Promise.allSettled(openingTransitions.map(animation => animation.finished));
+  } else {
+    for (const animation of openingTransitions) animation.finish();
+  }
+  openingTransitions = [];
 
   showSection(entry.key);
   sectionView.hidden = false;
@@ -796,10 +804,6 @@ async function closeSection(entry) {
   aboutButton.removeAttribute('aria-current');
   for (const animation of curtainAnimations) animation.cancel();
   curtainAnimations = [];
-  for (const animation of pausedTransitions) {
-    if (animation.playState === 'paused') animation.play();
-  }
-  pausedTransitions = [];
   pointerReady = false;
   cardGroup.inert = false;
   siteFooter.inert = false;
@@ -1015,12 +1019,7 @@ for (const card of cards) {
   });
   card.addEventListener('click', () => {
     if (view !== 'cards') return;
-
-    if (card.classList.contains('is-active')) {
-      navigateTo(card.dataset.card, card);
-    } else {
-      activateCard(card);
-    }
+    navigateTo(card.dataset.card, card);
   });
 }
 
@@ -1075,9 +1074,7 @@ motion.addEventListener('change', () => {
   if (sectionSwitchAnimation) sectionSwitchAnimation.finish();
   for (const animation of accordionAnimations) animation.finish();
   for (const animation of curtainAnimations) animation.finish();
-  for (const animation of pausedTransitions) {
-    if (animation.playState === 'paused') animation.finish();
-  }
+  for (const animation of openingTransitions) animation.finish();
   window.scrollTo({ top: window.scrollY, behavior: 'instant' });
   sectionScroll.scrollTo({ top: sectionScroll.scrollTop, behavior: 'instant' });
 });

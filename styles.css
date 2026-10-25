@@ -1711,8 +1711,6 @@ a.academia-institution-link:focus-visible {
 }
 
 .card[data-card="contact"] {
-  --hey-width-closed: min(calc(var(--card-width-closed) - 24px), 76cqh, 460px);
-  --hey-width-open: min(calc(var(--card-width-closed) * var(--active-card-grow) - 56px), calc((100cqh - 112px) * 333.35 / 314.81), 520px);
   --card-color: #294a73;
   --card-image: url("photos/public/lets_talk.JPG?v=20261025-web");
   --image-shade: linear-gradient(to top, rgb(4 17 32 / 48%), rgb(8 25 42 / 10%) 48%, rgb(8 25 42 / 16%));
@@ -1724,47 +1722,6 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="contact"]::before {
   filter: saturate(0.76) brightness(0.82);
-}
-
-.contact-hey {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: var(--hey-width-closed);
-  max-width: calc(100% - 24px);
-  height: auto;
-  opacity: 0;
-  filter: brightness(0) invert(1);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition:
-    width var(--card-motion),
-    top var(--card-motion);
-}
-
-.card.is-active .contact-hey {
-  top: 48%;
-  width: var(--hey-width-open);
-  opacity: 1;
-}
-
-.hey-trace {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-}
-
-.card.is-active .hey-trace {
-  animation: write-hey 1100ms linear both;
-}
-
-@keyframes write-hey {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 @media (max-width: 900px) {
@@ -1854,24 +1811,10 @@ a.academia-institution-link:focus-visible {
   }
 
   .card[data-card="contact"] {
-    --hey-width-closed: 44px;
-    --hey-width-open: min(calc(100cqw - 64px), calc(var(--card-height-open) * 0.74), 320px);
     --image-position-closed: 50% 24%;
     --image-position-open: 50% 8%;
     --image-zoom-closed: 1.62;
     --image-zoom-open: 1.56;
-  }
-
-  .contact-hey {
-    left: calc(50% - 20px);
-    transition:
-      width var(--card-motion),
-      top var(--card-motion),
-      left var(--card-motion);
-  }
-
-  .card.is-active .contact-hey {
-    left: 50%;
   }
 
   .section-content {

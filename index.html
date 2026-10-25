@@ -29,43 +29,35 @@
     <script src="theme.js?v=20261023-theme-icons"></script>
     <script src="motion.js?v=20261024-motion-toggle"></script>
     <link rel="preload" href="font/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20261025-academia-tab-offset">
+    <link rel="stylesheet" href="styles.css?v=20261025-single-tap">
     <link rel="stylesheet" href="assets/elsewhere/elsewhere.css?v=20261024-no-divider">
     <link rel="stylesheet" href="assets/lanyard/contact.css?v=20261025-contact-chat-blue">
-    <script src="app.js?v=20261025-academia-tab-offset" defer></script>
+    <script src="app.js?v=20261025-single-tap" defer></script>
   </head>
   <body>
     <main aria-label="Digital Portrait">
       <div class="cards" role="group" aria-label="Sections">
-        <button class="card" data-card="academia" type="button" aria-pressed="false" aria-controls="section-view">
+        <button class="card" data-card="academia" type="button" aria-controls="section-view">
           <span class="card-title">Academia</span>
           <span class="card-title-vertical" aria-hidden="true">Academia</span>
         </button>
-        <button class="card" data-card="experience" type="button" aria-pressed="false" aria-controls="section-view">
+        <button class="card" data-card="experience" type="button" aria-controls="section-view">
           <span class="card-title">Experience</span>
           <span class="card-title-vertical" aria-hidden="true">Experience</span>
         </button>
-        <button class="card is-active" data-card="portrait" type="button" aria-pressed="true" aria-controls="section-view">
+        <button class="card is-active" data-card="portrait" type="button" aria-controls="section-view">
           <span class="card-title">Christian J. Heinze</span>
           <span class="card-title-vertical" aria-hidden="true">Christian J. Heinze</span>
         </button>
-        <button class="card" data-card="perspectives" type="button" aria-pressed="false" aria-controls="section-view">
-          <span class="card-title">Perspectives</span>
-          <span class="card-title-vertical" aria-hidden="true">Perspectives</span>
-        </button>
-        <button class="card" data-card="elsewhere" type="button" aria-pressed="false" aria-controls="section-view">
+        <button class="card" data-card="elsewhere" type="button" aria-controls="section-view">
           <span class="card-title">Elsewhere</span>
           <span class="card-title-vertical" aria-hidden="true">Elsewhere</span>
         </button>
-        <button class="card" data-card="contact" type="button" aria-pressed="false" aria-controls="section-view">
-          <svg class="contact-hey" viewBox="586.704 260.438 333.350 314.810" aria-hidden="true" focusable="false">
-            <defs>
-              <mask id="hey-write-mask" maskUnits="userSpaceOnUse" x="586.704" y="260.438" width="333.350" height="314.810">
-                <path class="hey-trace" d="M 592.38,370.70 C 593.26 370.13, 593.84 369.50, 594.70 367.34 C 595.56 365.19, 595.66 363.62, 596.68 359.92 C 597.70 356.22, 598.26 353.74, 599.80 348.82 C 601.34 343.91, 602.24 340.97, 604.39 335.32 C 606.54 329.68, 608.00 326.50, 610.56 320.58 C 613.13 314.67, 614.48 311.51, 617.20 305.74 C 619.93 299.98, 621.37 296.95, 624.19 291.75 C 627.02 286.55, 628.69 283.88, 631.31 279.75 C 633.94 275.63, 635.43 273.75, 637.33 271.12 C 639.24 268.49, 639.91 267.45, 640.85 266.59 C 641.79 265.73, 641.64 265.69, 642.04 266.81 C 642.44 267.93, 642.33 269.00, 642.84 272.20 C 643.35 275.39, 643.99 277.64, 644.60 282.78 C 645.21 287.93, 645.47 291.15, 645.88 297.92 C 646.28 304.69, 646.42 308.89, 646.63 316.64 C 646.84 324.38, 646.81 328.53, 646.92 336.65 C 647.03 344.77, 647.07 349.18, 647.16 357.22 C 647.26 365.27, 647.32 369.45, 647.41 376.86 C 647.49 384.28, 647.59 387.88, 647.61 394.29 C 647.63 400.70, 647.57 403.76, 647.49 408.91 C 647.42 414.06, 647.49 416.39, 647.25 420.04 C 647.01 423.69, 646.65 425.02, 646.31 427.15 C 645.97 429.27, 645.80 429.96, 645.56 430.66 C 645.33 431.37, 645.53 431.28, 645.12 430.68 C 644.72 430.08, 644.61 429.39, 643.53 427.64 C 642.45 425.90, 641.30 424.90, 639.72 421.95 C 638.15 419.00, 637.24 416.78, 635.67 412.91 C 634.10 409.03, 633.25 406.80, 631.87 402.57 C 630.49 398.34, 629.64 395.95, 628.77 391.74 C 627.89 387.52, 627.71 385.22, 627.50 381.50 C 627.29 377.77, 627.23 376.33, 627.71 373.13 C 628.19 369.92, 628.56 368.28, 629.90 365.48 C 631.25 362.68, 632.07 361.64, 634.42 359.14 C 636.76 356.64, 638.35 355.48, 641.65 352.98 C 644.94 350.49, 646.90 349.26, 650.89 346.66 C 654.88 344.07, 657.22 342.71, 661.60 340.01 C 665.99 337.31, 668.43 335.85, 672.82 333.17 C 677.22 330.49, 679.54 329.15, 683.57 326.63 C 687.60 324.11, 689.64 322.96, 692.98 320.58 C 696.32 318.20, 697.82 317.16, 700.25 314.73 C 702.67 312.30, 703.75 311.04, 705.12 308.44 C 706.50 305.84, 706.89 304.22, 707.12 301.73 C 707.34 299.24, 707.14 297.82, 706.26 296.01 C 705.39 294.20, 704.46 293.14, 702.74 292.69 C 701.02 292.24, 699.26 292.15, 697.65 293.77 C 696.04 295.39, 695.47 296.93, 694.69 300.80 C 693.91 304.67, 693.98 307.34, 693.76 313.12 C 693.53 318.89, 693.36 322.58, 693.56 329.67 C 693.77 336.75, 694.05 340.91, 694.77 348.53 C 695.49 356.15, 695.95 360.33, 697.16 367.77 C 698.37 375.21, 699.12 379.03, 700.81 385.71 C 702.51 392.39, 703.47 395.63, 705.65 401.17 C 707.82 406.71, 709.10 409.22, 711.69 413.40 C 714.28 417.57, 715.72 419.26, 718.59 422.05 C 721.46 424.84, 722.88 425.98, 726.03 427.33 C 729.19 428.68, 731.14 429.15, 734.36 428.80 C 737.58 428.46, 739.25 427.61, 742.11 425.62 C 744.98 423.62, 746.29 422.23, 748.69 418.82 C 751.09 415.41, 752.03 413.17, 754.13 408.56 C 756.23 403.94, 757.33 401.13, 759.18 395.74 C 761.03 390.35, 762.00 387.04, 763.40 381.61 C 764.79 376.19, 765.43 373.37, 766.17 368.61 C 766.91 363.86, 767.28 361.56, 767.10 357.84 C 766.93 354.12, 766.61 352.33, 765.30 350.01 C 763.98 347.69, 762.79 346.75, 760.51 346.23 C 758.24 345.71, 756.29 345.75, 753.92 347.40 C 751.54 349.06, 750.41 350.78, 748.63 354.50 C 746.86 358.23, 746.11 360.87, 745.03 366.03 C 743.95 371.19, 743.22 374.59, 743.24 380.30 C 743.27 386.02, 743.82 389.39, 745.15 394.61 C 746.48 399.84, 747.43 402.43, 749.89 406.42 C 752.35 410.41, 753.94 412.13, 757.44 414.56 C 760.94 416.98, 763.17 417.88, 767.40 418.55 C 771.63 419.22, 774.06 418.86, 778.60 417.90 C 783.14 416.95, 785.62 416.08, 790.11 413.77 C 794.60 411.46, 796.92 409.79, 801.05 406.36 C 805.17 402.93, 807.26 400.85, 810.74 396.62 C 814.21 392.40, 815.80 389.66, 818.42 385.24 C 821.04 380.83, 822.22 378.32, 823.82 374.54 C 825.43 370.76, 826.31 368.78, 826.46 366.34 C 826.61 363.89, 825.70 362.57, 824.58 362.31 C 823.46 362.05, 821.90 362.73, 820.85 365.02 C 819.80 367.31, 819.57 369.70, 819.33 373.78 C 819.09 377.86, 819.06 380.67, 819.66 385.41 C 820.26 390.15, 820.70 393.15, 822.33 397.48 C 823.97 401.81, 825.12 403.98, 827.83 407.06 C 830.55 410.13, 832.33 411.44, 835.89 412.85 C 839.44 414.27, 841.62 414.46, 845.62 414.13 C 849.62 413.80, 851.83 413.06, 855.89 411.20 C 859.94 409.33, 862.22 407.90, 865.90 404.79 C 869.58 401.69, 871.24 399.57, 874.28 395.67 C 877.33 391.77, 878.81 389.45, 881.11 385.30 C 883.41 381.16, 884.46 378.67, 885.78 374.94 C 887.10 371.20, 887.65 368.90, 887.71 366.62 C 887.77 364.34, 886.67 363.23, 886.08 363.53 C 885.50 363.82, 884.72 364.75, 884.77 368.08 C 884.82 371.40, 885.50 374.07, 886.34 380.15 C 887.17 386.24, 887.65 390.35, 888.95 398.50 C 890.24 406.64, 891.14 411.59, 892.81 420.90 C 894.48 430.21, 895.44 435.42, 897.29 445.04 C 899.13 454.66, 900.15 459.58, 902.04 469.00 C 903.92 478.41, 905.14 483.27, 906.72 492.12 C 908.30 500.97, 909.06 505.35, 909.95 513.24 C 910.84 521.14, 911.24 524.91, 911.16 531.59 C 911.08 538.27, 910.81 541.35, 909.54 546.64 C 908.26 551.93, 907.24 554.29, 904.78 558.06 C 902.33 561.82, 900.79 563.32, 897.27 565.46 C 893.76 567.59, 891.64 568.29, 887.20 568.74 C 882.76 569.20, 879.99 569.06, 875.06 567.73 C 870.14 566.40, 867.26 565.09, 862.57 562.09 C 857.88 559.09, 855.39 557.04, 851.59 552.74 C 847.80 548.45, 845.81 545.88, 843.60 540.61 C 841.38 535.34, 840.51 532.20, 840.50 526.40 C 840.49 520.59, 841.24 517.57, 843.56 511.60 C 845.88 505.64, 847.75 502.42, 852.11 496.57 C 856.48 490.71, 859.39 487.70, 865.39 482.32 C 871.39 476.94, 875.36 474.28, 882.10 469.67 C 888.85 465.05, 892.50 462.82, 899.10 459.23 C 905.69 455.63, 912.05 453.58, 915.07 451.69" pathLength="1" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-              </mask>
-            </defs>
-            <image href="assets/hey.svg" x="586.704" y="260.438" width="333.350" height="314.810" mask="url(#hey-write-mask)"/>
-          </svg>
+        <button class="card" data-card="perspectives" type="button" aria-controls="section-view">
+          <span class="card-title">Perspectives</span>
+          <span class="card-title-vertical" aria-hidden="true">Perspectives</span>
+        </button>
+        <button class="card" data-card="contact" type="button" aria-controls="section-view">
           <span class="card-title">Let’s talk</span>
           <span class="card-title-vertical" aria-hidden="true">Let’s talk</span>
         </button>
