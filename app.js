@@ -15,6 +15,13 @@ const elsewhereIntro = elsewhereContent.querySelector('.elsewhere-intro');
 const elsewhereRoadField = elsewhereContent.querySelector('.elsewhere-road');
 const portraitContent = document.querySelector('#portrait-content');
 const contactContent = document.querySelector('#contact-content');
+const contactChat = contactContent.querySelector('.contact-chat');
+const contactChatBubbles = [...contactChat.querySelectorAll('.contact-chat-bubble')];
+const contactGreetings = [
+  ['Hey, glad you’re here.', 'A question, an idea, or just saying hi?', 'Any of those works.'],
+  ['Hey!', 'What’s something you could talk about for hours?', 'I’m always up for a good rabbit hole.'],
+  ['I was going to write a very professional introduction.', 'But honestly…', 'A hello is a pretty good start.']
+];
 const portraitLanyardStage = document.querySelector('#portrait-lanyard');
 const academiaChapters = [...document.querySelectorAll('.academia-chapter')];
 const academiaButtons = [...document.querySelectorAll('[data-academia-target]')];
@@ -74,6 +81,74 @@ let portraitLanyard = null;
 let portraitLanyardLoading = null;
 let elsewhereRoad = null;
 let elsewhereRoadLoading = null;
+let previousContactGreeting = null;
+let contactChatAnimations = [];
+let contactChatVisible = false;
+
+function finishContactChat() {
+  for (const animation of contactChatAnimations) {
+    animation.onfinish = null;
+    animation.cancel();
+  }
+  contactChatAnimations = [];
+}
+
+function animateContactChat(element, frames, timing) {
+  const animation = element.animate(frames, { ...timing, fill: 'both' });
+  animation.pause();
+  contactChatAnimations.push(animation);
+  return animation;
+}
+
+function prepareContactChat() {
+  finishContactChat();
+  const choices = contactGreetings.filter(greeting => greeting !== previousContactGreeting);
+  const greeting = choices[Math.floor(Math.random() * choices.length)];
+  previousContactGreeting = greeting;
+  let delay = 220;
+
+  for (const [index, bubble] of contactChatBubbles.entries()) {
+    bubble.textContent = greeting[index];
+    if (!motion.enabled) continue;
+
+    const typing = bubble.nextElementSibling;
+    const duration = Math.min(1700, Math.max(1100, 900 + greeting[index].length * 14));
+    animateContactChat(typing, [
+      { opacity: 0, offset: 0 },
+      { opacity: 1, offset: 0.08 },
+      { opacity: 1, offset: 0.92 },
+      { opacity: 0, offset: 1 }
+    ], { delay, duration });
+    for (const [dotIndex, dot] of [...typing.children].entries()) {
+      animateContactChat(dot, [
+        { opacity: 0.35, transform: 'translateY(0)' },
+        { opacity: 1, transform: 'translateY(-3px)' },
+        { opacity: 0.35, transform: 'translateY(0)' }
+      ], { delay: delay + dotIndex * 100, duration: 540, iterations: Math.ceil(duration / 540), easing: 'ease-in-out' });
+    }
+    const reveal = animateContactChat(bubble, [
+      { opacity: 0, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { delay: delay + duration, duration: 280, easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)' });
+    if (index === contactChatBubbles.length - 1) reveal.onfinish = finishContactChat;
+    delay += duration + 650;
+  }
+}
+
+function updateContactChat() {
+  const active = view === 'section' && currentSection === 'contact' && contactChatVisible && !document.hidden;
+  for (const animation of contactChatAnimations) {
+    if (active && animation.playState === 'paused') animation.play();
+    else if (!active && animation.playState === 'running') animation.pause();
+  }
+}
+
+const contactChatObserver = new IntersectionObserver(entries => {
+  contactChatVisible = entries[0].isIntersecting;
+  updateContactChat();
+}, { root: sectionScroll });
+contactChatObserver.observe(contactChat);
+document.addEventListener('visibilitychange', updateContactChat);
 
 function updatePerspectivesLayout() {
   if (sectionView.hidden || perspectivesContent.hidden) return;
@@ -562,8 +637,9 @@ function showSection(key) {
   for (const content of sectionContents) content.hidden = content.dataset.section !== key;
   if (key === 'academia') selectAcademiaTab(navigationEntry.academiaTab ?? 0);
   if (key === 'experience') prepareExperienceScale();
+  if (key === 'contact') prepareContactChat();
+  else finishContactChat();
   portraitContent.classList.remove('is-visible');
-  contactContent.classList.remove('is-visible');
   elsewhereIntro.classList.remove('is-visible');
   const previousKey = navigationEntry.previousKey;
   const backLabel = previousKey
@@ -584,7 +660,6 @@ function finishSection(focusTarget = sectionView) {
   view = 'section';
   focusTarget.focus({ preventScroll: true });
   if (!portraitContent.hidden) portraitContent.classList.add('is-visible');
-  if (!contactContent.hidden) contactContent.classList.add('is-visible');
   if (!elsewhereContent.hidden) {
     elsewhereIntro.getBoundingClientRect();
     elsewhereIntro.classList.add('is-visible');
@@ -593,6 +668,7 @@ function finishSection(focusTarget = sectionView) {
   updatePortraitLanyard();
   updateElsewhereRoad();
   updateExperienceTimeline();
+  updateContactChat();
 }
 
 async function fadeSection(from, to) {
@@ -610,6 +686,7 @@ async function fadeSection(from, to) {
 async function switchSection(key, entry) {
   if (view !== 'section') return;
   view = 'switching';
+  updateContactChat();
   finishExperienceDrag();
   stopExperienceWake();
   updatePortraitLanyard();
@@ -671,6 +748,7 @@ async function closeSection(entry) {
   if (view !== 'section') return;
 
   view = 'closing';
+  updateContactChat();
   finishExperienceDrag();
   stopExperienceWake();
   updatePortraitLanyard();
@@ -693,6 +771,7 @@ async function closeSection(entry) {
 
   sectionView.hidden = true;
   currentSection = null;
+  finishContactChat();
   aboutButton.removeAttribute('aria-current');
   for (const animation of curtainAnimations) animation.cancel();
   curtainAnimations = [];
@@ -963,6 +1042,7 @@ document.addEventListener('keydown', event => {
 motion.addEventListener('change', () => {
   if (motion.enabled) return;
 
+  finishContactChat();
   stopExperienceWake();
   if (sectionSwitchAnimation) sectionSwitchAnimation.finish();
   for (const animation of accordionAnimations) animation.finish();
@@ -975,6 +1055,7 @@ motion.addEventListener('change', () => {
 });
 
 window.addEventListener('pagehide', event => {
+  finishContactChat();
   finishExperienceDrag();
   stopExperienceWake();
   if (event.persisted) portraitLanyard?.setPaused(true);

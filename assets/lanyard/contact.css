@@ -110,25 +110,73 @@
   color: var(--text-primary);
 }
 
-.contact-copy h2 {
-  margin: 0 0 34px;
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 5.4vw, 4.5rem);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.04em;
-}
-
-.contact-content.is-visible .text-highlight {
-  background-size: 100% 88%;
-}
-
-.contact-intro {
-  margin: 0 0 36px;
-  color: var(--text-secondary);
+.contact-chat {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  max-width: 620px;
+  margin-bottom: 56px;
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.contact-chat-avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-top: 7px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact-chat-messages {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-chat-message {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  min-width: 0;
+}
+
+.contact-chat-bubble,
+.contact-chat-typing {
+  padding: 14px 18px;
+  border-radius: 20px 20px 20px 6px;
+  background: #2449c7;
+  color: #fff;
+}
+
+.contact-chat-bubble {
+  max-width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-chat-typing {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: calc(1.5em + 28px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-chat-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .contact-profile-links a {
@@ -219,12 +267,17 @@
     height: 500px;
   }
 
-  .contact-copy h2 {
-    font-size: clamp(2.65rem, 9vw, 4rem);
+  .contact-chat {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+    font-size: 1rem;
   }
 
-  .contact-intro {
-    font-size: 0.9375rem;
+  .contact-chat-avatar {
+    width: 36px;
+    height: 36px;
+    margin-top: 8px;
   }
 
   .contact-profile-links a {
