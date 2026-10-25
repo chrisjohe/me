@@ -304,6 +304,7 @@ main {
   gap: 24px;
   padding: var(--page-padding) var(--page-padding) 16px;
   background: var(--page-bg);
+  box-shadow: 0 2px 0 var(--page-bg);
 }
 
 .section-scroll {
