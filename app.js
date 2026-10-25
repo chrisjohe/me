@@ -51,9 +51,10 @@ const accordionAnimations = new Set();
 const motion = window.portraitMotion;
 const stackedLayout = window.matchMedia('(max-width: 900px)');
 const compactDetailLayout = window.matchMedia('(max-width: 900px), (max-height: 600px)');
-const cardExpandDuration = 350;
-const curtainDuration = 600;
-const curtainSplit = 360 / curtainDuration;
+const cardExpandDuration = 500;
+const cardPreviewDuration = 900;
+const curtainDuration = 800;
+const curtainSplit = 500 / curtainDuration;
 const curtainEase = 'cubic-bezier(0.42, 0, 0.58, 1)';
 const navigationStateKey = 'cjPortraitNavigation';
 const sectionKeys = new Set(['about', ...cards.map(card => card.dataset.card)]);
@@ -67,6 +68,7 @@ let pendingNavigation = null;
 let navigating = false;
 let backPending = false;
 let sectionSwitchAnimation = null;
+let cardPreviewAnimation = null;
 let selectedCard = portraitCard;
 let curtainAnimations = [];
 let openingTransitions = [];
@@ -748,6 +750,16 @@ async function openSection(card, entry, instant = false) {
   }
   openingTransitions = [];
 
+  if (card && !instant && motion.enabled) {
+    cardPreviewAnimation = card.animate([
+      { opacity: 1 },
+      { opacity: 1 }
+    ], { duration: cardPreviewDuration });
+    await Promise.allSettled([cardPreviewAnimation.finished]);
+    cardPreviewAnimation.cancel();
+    cardPreviewAnimation = null;
+  }
+
   showSection(entry.key);
   sectionView.hidden = false;
   updateSectionFade();
@@ -1072,6 +1084,7 @@ motion.addEventListener('change', () => {
   finishContactChat();
   stopExperienceWake();
   if (sectionSwitchAnimation) sectionSwitchAnimation.finish();
+  if (cardPreviewAnimation) cardPreviewAnimation.finish();
   for (const animation of accordionAnimations) animation.finish();
   for (const animation of curtainAnimations) animation.finish();
   for (const animation of openingTransitions) animation.finish();
