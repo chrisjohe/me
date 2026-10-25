@@ -347,7 +347,7 @@ function revealAcademiaChapter() {
 }
 
 function measureExperienceTimeline() {
-  const viewportHeight = sectionScroll.clientHeight;
+  const viewportHeight = Math.max(0, sectionScroll.clientHeight - siteFooter.offsetHeight);
   if (experienceViewportHeight !== viewportHeight) {
     experienceViewportHeight = viewportHeight;
     experienceContent.style.setProperty('--experience-viewport-height', `${viewportHeight}px`);
@@ -355,7 +355,7 @@ function measureExperienceTimeline() {
   const viewportTop = sectionScroll.getBoundingClientRect().top;
   const readingOffset = Math.max(viewportHeight * 0.3,
     compactDetailLayout.matches ? experienceSidebar.offsetHeight + 24 : 32);
-  const maxScroll = Math.max(0, sectionScroll.scrollHeight - viewportHeight);
+  const maxScroll = Math.max(0, sectionScroll.scrollHeight - sectionScroll.clientHeight);
   const scrollTop = Math.max(0, Math.min(sectionScroll.scrollTop, maxScroll));
   const thresholds = experienceEntries.map((entry, index) => index === 0 ? 0
     : Math.max(0, Math.min(maxScroll, sectionScroll.scrollTop + entry.getBoundingClientRect().top - viewportTop - readingOffset)));

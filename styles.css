@@ -17,8 +17,9 @@
 :root {
   --page-padding: 40px;
   --footer-height: calc(68px + env(safe-area-inset-bottom));
+  --footer-fade-height: 48px;
   --page-bg: #0d0d0d;
-  --footer-glass: rgb(13 13 13 / 68%);
+  --footer-glass: rgb(13 13 13 / 52%);
   --text-strong: #fff;
   --text-primary: #eeece8;
   --text-body: #c7c7c7;
@@ -66,7 +67,7 @@
 
 :root[data-theme="light"] {
   --page-bg: #f7f6f3;
-  --footer-glass: rgb(247 246 243 / 78%);
+  --footer-glass: rgb(247 246 243 / 56%);
   --text-strong: #25231f;
   --text-primary: #292724;
   --text-body: #484743;
@@ -162,21 +163,77 @@ main {
   line-height: 1.5;
 }
 
-@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+.footer-blur {
+  display: none;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) and ((mask-image: linear-gradient(transparent, #000)) or (-webkit-mask-image: linear-gradient(transparent, #000))) {
   .site-footer {
     background: transparent;
     color: var(--text-body);
   }
 
-  .site-footer::before {
-    content: "";
+  .footer-blur {
     position: absolute;
     z-index: -1;
+    inset: calc(-1 * var(--footer-fade-height)) 0 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .footer-blur > span {
+    --blur-radius: 0.75px;
+    --blur-start: 0%;
+    position: absolute;
+    inset: 0;
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 calc(var(--blur-start) + 12.5%));
+    mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 calc(var(--blur-start) + 12.5%));
+  }
+
+  .footer-blur > span:nth-child(2) {
+    --blur-radius: 1.5px;
+    --blur-start: 12.5%;
+  }
+
+  .footer-blur > span:nth-child(3) {
+    --blur-radius: 2.5px;
+    --blur-start: 25%;
+  }
+
+  .footer-blur > span:nth-child(4) {
+    --blur-radius: 4px;
+    --blur-start: 37.5%;
+  }
+
+  .footer-blur > span:nth-child(5) {
+    --blur-radius: 6px;
+    --blur-start: 50%;
+  }
+
+  .footer-blur > span:nth-child(6) {
+    --blur-radius: 9px;
+    --blur-start: 62.5%;
+  }
+
+  .footer-blur > span:nth-child(7) {
+    --blur-radius: 13px;
+    --blur-start: 75%;
+  }
+
+  .footer-blur > span:nth-child(8) {
+    --blur-radius: 18px;
+    --blur-start: 87.5%;
+  }
+
+  .footer-blur::after {
+    content: "";
+    position: absolute;
     inset: 0;
     background: var(--footer-glass);
-    -webkit-backdrop-filter: blur(32px);
-    backdrop-filter: blur(32px);
-    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / 10%) 25%, rgb(0 0 0 / 50%) 55%, #000);
+    mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / 10%) 25%, rgb(0 0 0 / 50%) 55%, #000);
   }
 }
 
@@ -186,7 +243,7 @@ main {
     color: var(--text-muted);
   }
 
-  .site-footer::before {
+  .footer-blur {
     display: none;
   }
 }
@@ -286,7 +343,7 @@ main {
   --section-content-inset: 68px;
   position: fixed;
   z-index: 3;
-  inset: 0 0 var(--footer-height);
+  inset: 0;
   grid-template-rows: auto minmax(0, 1fr);
   overflow: hidden;
   background: var(--page-bg);
@@ -310,9 +367,10 @@ main {
 .section-scroll {
   min-width: 0;
   min-height: 0;
-  padding: 0 var(--page-padding) var(--page-padding);
+  padding: 0 var(--page-padding) calc(var(--page-padding) + var(--footer-height) + var(--footer-fade-height));
   overflow-y: auto;
   scroll-padding-top: 24px;
+  scroll-padding-bottom: calc(var(--footer-height) + var(--footer-fade-height));
 }
 
 .section-scroll:focus-visible {
@@ -1671,6 +1729,10 @@ a.academia-institution-link:focus-visible {
 @media (max-width: 900px) {
   :root {
     --page-padding: clamp(16px, 3vw, 28px);
+  }
+
+  body {
+    padding-bottom: calc(var(--footer-height) + var(--footer-fade-height));
   }
 
   .cards {
