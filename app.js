@@ -23,6 +23,7 @@ const contactGreetings = [
   ['I was going to write a very professional introduction.', 'But honestly…', 'A hello is a pretty good start.']
 ];
 const portraitLanyardStage = document.querySelector('#portrait-lanyard');
+const academiaTabs = document.querySelector('.academia-tabs');
 const academiaChapters = [...document.querySelectorAll('.academia-chapter')];
 const academiaButtons = [...document.querySelectorAll('[data-academia-target]')];
 const experienceContent = document.querySelector('#experience-content');
@@ -428,8 +429,7 @@ function measureExperienceTimeline() {
     experienceContent.style.setProperty('--experience-viewport-height', `${viewportHeight}px`);
   }
   const viewportTop = sectionScroll.getBoundingClientRect().top;
-  const readingOffset = Math.max(viewportHeight * 0.3,
-    compactDetailLayout.matches ? experienceSidebar.offsetHeight + 24 : 32);
+  const readingOffset = Math.max(viewportHeight * 0.3, parseFloat(getComputedStyle(sectionScroll).scrollPaddingTop));
   const maxScroll = Math.max(0, sectionScroll.scrollHeight - sectionScroll.clientHeight);
   const scrollTop = Math.max(0, Math.min(sectionScroll.scrollTop, maxScroll));
   const thresholds = experienceEntries.map((entry, index) => index === 0 ? 0
@@ -501,16 +501,23 @@ function finishExperienceDrag() {
 }
 
 function updateSectionFade() {
-  const opacity = Math.min(1, Math.max(0, sectionScroll.scrollTop) / 16);
-  sectionView.style.setProperty('--header-fade-opacity', String(opacity));
+  if (sectionView.hidden) return;
+
+  const menu = currentSection === 'academia' ? academiaTabs
+    : currentSection === 'experience' && compactDetailLayout.matches ? experienceSidebar : null;
+  const menuHeight = menu
+    ? Math.max(0, Math.ceil(menu.getBoundingClientRect().bottom - sectionScroll.getBoundingClientRect().top))
+    : 0;
+  sectionView.style.setProperty('--header-menu-height', `${menuHeight}px`);
+  sectionView.style.setProperty('--header-blur-visibility', sectionScroll.scrollTop > 0 ? 'visible' : 'hidden');
 }
 
 function scheduleSectionUpdate() {
   if (sectionView.hidden || sectionFrame !== null) return;
   sectionFrame = requestAnimationFrame(() => {
     sectionFrame = null;
-    updateExperienceTimeline();
     updateSectionFade();
+    updateExperienceTimeline();
   });
 }
 
@@ -705,8 +712,8 @@ async function switchSection(key, entry) {
   showSection(key);
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
-  updateExperienceTimeline();
   updateSectionFade();
+  updateExperienceTimeline();
   await fadeSection(0, 1);
   finishSection(focusTargets[entry.focusIndex] ?? sectionView);
 }
@@ -732,8 +739,8 @@ async function openSection(card, entry, instant = false) {
   sectionView.hidden = false;
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
-  updateExperienceTimeline();
   updateSectionFade();
+  updateExperienceTimeline();
 
   if (!instant && motion.enabled) {
     const timing = { duration: card ? curtainDuration : 220, fill: 'both' };
@@ -825,6 +832,11 @@ for (const trigger of document.querySelectorAll('[data-section-target]')) {
 sectionScroll.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
 window.addEventListener('resize', scheduleSectionUpdate);
 experienceContent.addEventListener('toggle', scheduleSectionUpdate, true);
+
+const sectionMenuResize = new ResizeObserver(scheduleSectionUpdate);
+sectionMenuResize.observe(academiaTabs);
+sectionMenuResize.observe(experienceSidebar);
+sectionMenuResize.observe(sectionScroll);
 
 experienceTrack.addEventListener('pointerdown', event => {
   if (event.button !== 0 || experienceWake.pointerId !== null
@@ -974,7 +986,7 @@ for (const button of experienceButtons) {
     if (view !== 'section' || currentSection !== 'experience') return;
 
     const entry = document.getElementById(button.dataset.experienceTarget);
-    const offset = compactDetailLayout.matches ? experienceSidebar.offsetHeight + 24 : 32;
+    const offset = parseFloat(getComputedStyle(sectionScroll).scrollPaddingTop);
     const top = sectionScroll.scrollTop + entry.getBoundingClientRect().top
       - sectionScroll.getBoundingClientRect().top - offset;
     entry.focus({ preventScroll: true });
