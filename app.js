@@ -19,9 +19,9 @@ const contactContent = document.querySelector('#contact-content');
 const contactChat = contactContent.querySelector('.contact-chat');
 const contactChatBubbles = [...contactChat.querySelectorAll('.contact-chat-bubble')];
 const contactGreetings = [
-  ['Hey, glad you’re here.', 'A question, an idea, or just saying hi?', 'Any of those works.'],
-  ['Hey!', 'What’s something you could talk about for hours?', 'I’m always up for a good rabbit hole.'],
-  ['I was going to write a very professional introduction.', 'But honestly…', 'A hello is a pretty good start.']
+  ['Hey!', "What's on your mind?", "Let's get into it."],
+  ['Hi there!', 'Got a question, an idea, or something to figure out?', "I'm all ears."],
+  ['Hey!', 'Got an idea or an opinion worth challenging?', "Let's see where the conversation takes us."]
 ];
 const portraitLanyardStage = document.querySelector('#portrait-lanyard');
 const academiaTabs = document.querySelector('.academia-tabs');
