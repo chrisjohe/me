@@ -590,41 +590,29 @@ main {
 }
 
 .portrait-content {
-  max-width: 1280px;
-  margin: clamp(56px, 8svh, 100px) 0 32px var(--section-content-inset);
+  max-width: 1140px;
+  margin: 24px 0 32px var(--section-content-inset);
   color: var(--text-primary);
 }
 
 .portrait-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(220px, 0.85fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(32px, 5vw, 80px);
+  gap: clamp(32px, 6vw, 96px);
+}
+
+.portrait-object {
+  min-width: 0;
+  align-self: start;
 }
 
 .portrait-copy {
   min-width: 0;
 }
 
-.portrait-photo {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 3 / 4;
-  justify-self: end;
-  overflow: hidden;
-  border-radius: 1.85rem;
-  background: #35302e;
-}
-
-.portrait-photo img {
-  position: absolute;
-  top: -85%;
-  left: -16%;
-  display: block;
-  width: 305%;
-  max-width: none;
-  height: auto;
+.portrait-mobile-break {
+  display: none;
 }
 
 .portrait-statement {
@@ -655,7 +643,7 @@ main {
 }
 
 .portrait-teaching {
-  margin: 28px 0 0;
+  margin: 56px 0 0;
   color: var(--text-secondary);
   font-size: clamp(1.375rem, 2.4vw, 2rem);
   line-height: 1.4;
@@ -666,7 +654,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px 48px;
-  margin: 64px 0 0;
+  margin: 32px 0 0;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -1789,23 +1777,30 @@ a.academia-institution-link:focus-visible {
   }
 
   .portrait-content {
-    max-width: 680px;
-    margin: 56px auto 32px;
+    max-width: 540px;
+    margin: 24px auto 32px;
   }
 
   .portrait-intro {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
   }
 
-  .portrait-photo {
-    justify-self: start;
-    border-radius: 1.35rem;
+  .portrait-statement {
+    font-size: clamp(1.75rem, 8.35vw, 2.75rem);
+  }
+
+  .portrait-mobile-break {
+    display: inline;
+  }
+
+  .portrait-teaching {
+    margin-top: 64px;
   }
 
   .portrait-roles {
     grid-template-columns: 1fr;
-    margin-top: 48px;
+    margin-top: 32px;
   }
 
   .section-header {

@@ -15,7 +15,7 @@ const elsewhereIntro = elsewhereContent.querySelector('.elsewhere-intro');
 const elsewhereRoadField = elsewhereContent.querySelector('.elsewhere-road');
 const portraitContent = document.querySelector('#portrait-content');
 const contactContent = document.querySelector('#contact-content');
-const contactLanyardStage = document.querySelector('#contact-lanyard');
+const portraitLanyardStage = document.querySelector('#portrait-lanyard');
 const academiaChapters = [...document.querySelectorAll('.academia-chapter')];
 const academiaButtons = [...document.querySelectorAll('[data-academia-target]')];
 const experienceContent = document.querySelector('#experience-content');
@@ -70,8 +70,8 @@ let activeAcademia = 0;
 let activeExperience = -1;
 let experienceRanges = [];
 let experienceViewportHeight = 0;
-let contactLanyard = null;
-let contactLanyardLoading = null;
+let portraitLanyard = null;
+let portraitLanyardLoading = null;
 let elsewhereRoad = null;
 let elsewhereRoadLoading = null;
 
@@ -126,24 +126,24 @@ function updateElsewhereRoad() {
   });
 }
 
-function updateContactLanyard() {
-  const active = view === 'section' && currentSection === 'contact';
-  if (contactLanyard) {
-    contactLanyard.setPaused(!active);
+function updatePortraitLanyard() {
+  const active = view === 'section' && currentSection === 'portrait';
+  if (portraitLanyard) {
+    portraitLanyard.setPaused(!active);
     return;
   }
-  if (!active || contactLanyardLoading) return;
+  if (!active || portraitLanyardLoading) return;
 
-  contactLanyardLoading = import('./assets/lanyard/lanyard.js?v=20261024-motion-toggle').then(({ mountLanyard }) => {
-    if (view !== 'section' || currentSection !== 'contact') return;
-    contactLanyard = mountLanyard(contactLanyardStage);
-    const canvas = contactLanyardStage.querySelector('canvas');
+  portraitLanyardLoading = import('./assets/lanyard/lanyard.js?v=20261024-motion-toggle').then(({ mountLanyard }) => {
+    if (view !== 'section' || currentSection !== 'portrait') return;
+    portraitLanyard = mountLanyard(portraitLanyardStage);
+    const canvas = portraitLanyardStage.querySelector('canvas');
     if (canvas) focusTargets.push(canvas);
   }).catch(() => {
-    contactLanyardStage.classList.remove('is-ready');
-    contactLanyardStage.querySelector('canvas')?.remove();
+    portraitLanyardStage.classList.remove('is-ready');
+    portraitLanyardStage.querySelector('canvas')?.remove();
   }).finally(() => {
-    contactLanyardLoading = null;
+    portraitLanyardLoading = null;
   });
 }
 
@@ -590,7 +590,7 @@ function finishSection(focusTarget = sectionView) {
     elsewhereIntro.classList.add('is-visible');
   }
   revealAcademiaChapter();
-  updateContactLanyard();
+  updatePortraitLanyard();
   updateElsewhereRoad();
   updateExperienceTimeline();
 }
@@ -612,7 +612,7 @@ async function switchSection(key, entry) {
   view = 'switching';
   finishExperienceDrag();
   stopExperienceWake();
-  updateContactLanyard();
+  updatePortraitLanyard();
   updateElsewhereRoad();
   blurWithin(sectionView);
   blurWithin(siteFooter);
@@ -673,7 +673,7 @@ async function closeSection(entry) {
   view = 'closing';
   finishExperienceDrag();
   stopExperienceWake();
-  updateContactLanyard();
+  updatePortraitLanyard();
   updateElsewhereRoad();
   blurWithin(sectionView);
   blurWithin(siteFooter);
@@ -977,12 +977,12 @@ motion.addEventListener('change', () => {
 window.addEventListener('pagehide', event => {
   finishExperienceDrag();
   stopExperienceWake();
-  if (event.persisted) contactLanyard?.setPaused(true);
-  else contactLanyard?.destroy();
+  if (event.persisted) portraitLanyard?.setPaused(true);
+  else portraitLanyard?.destroy();
 });
 
 window.addEventListener('pageshow', event => {
-  if (event.persisted) updateContactLanyard();
+  if (event.persisted) updatePortraitLanyard();
 });
 
 initializeNavigation();

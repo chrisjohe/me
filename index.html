@@ -29,10 +29,10 @@
     <script src="theme.js?v=20261023-theme-icons"></script>
     <script src="motion.js?v=20261024-motion-toggle"></script>
     <link rel="preload" href="font/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20261025-elsewhere-centered">
+    <link rel="stylesheet" href="styles.css?v=20261025-portrait-lanyard">
     <link rel="stylesheet" href="assets/elsewhere/elsewhere.css?v=20261024-no-divider">
-    <link rel="stylesheet" href="assets/lanyard/contact.css?v=20261024-link-arrows">
-    <script src="app.js?v=20261025-elsewhere-centered" defer></script>
+    <link rel="stylesheet" href="assets/lanyard/contact.css?v=20261025-portrait-lanyard">
+    <script src="app.js?v=20261025-portrait-lanyard" defer></script>
   </head>
   <body>
     <main aria-label="Digital Portrait">
@@ -80,17 +80,26 @@
         <div class="section-scroll" role="region" aria-labelledby="section-title" tabindex="0">
           <div class="portrait-content" id="portrait-content" data-section="portrait" data-heading="Hey, I'm CJ." hidden>
             <div class="portrait-intro">
+              <div class="portrait-object">
+                <div class="lanyard-stage" id="portrait-lanyard" aria-label="Christian’s personal name badge">
+                  <div class="lanyard-fallback">
+                    <div class="lanyard-fallback-band" aria-hidden="true"></div>
+                    <div class="lanyard-fallback-clip" aria-hidden="true"></div>
+                    <div class="lanyard-fallback-card">
+                      <span class="lanyard-fallback-handle">@chrisjohe</span>
+                      <img src="assets/lanyard/profile-paper.png" alt="Christian’s portrait as a black-and-white paper cutout." loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="portrait-copy">
                 <p class="portrait-statement">
-                  I spent almost a decade working inside banks.<br>
+                  I spent almost a decade<br class="portrait-mobile-break"> working inside banks.<br>
                   <em class="text-highlight">Now I advise them.</em>
                 </p>
-                <p class="portrait-teaching">And teach banking, too.</p>
-              </div>
-              <div class="portrait-photo">
-                <img src="photos/public/portrait.jpg?v=20261025-web" alt="Chris wearing glasses and a white T-shirt in front of a gray wall." width="2000" height="1939">
               </div>
             </div>
+            <p class="portrait-teaching">And teach banking, too.</p>
             <nav class="portrait-roles" aria-label="Professional background">
               <button class="role-link" type="button" data-section-target="experience" aria-controls="section-view">
                 <span class="role-name">Senior Consultant</span>
@@ -700,18 +709,6 @@
             </div>
           </div>
           <div class="contact-content" id="contact-content" data-section="contact" data-heading="Let’s talk." hidden>
-            <div class="contact-object">
-              <div class="lanyard-stage" id="contact-lanyard" aria-label="Christian’s personal name badge">
-                <div class="lanyard-fallback">
-                  <div class="lanyard-fallback-band" aria-hidden="true"></div>
-                  <div class="lanyard-fallback-clip" aria-hidden="true"></div>
-                  <div class="lanyard-fallback-card">
-                    <span class="lanyard-fallback-handle">@chrisjohe</span>
-                    <img src="assets/lanyard/profile-paper.png" alt="Christian’s portrait as a black-and-white paper cutout." loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="contact-copy">
               <h2>It starts with<br><em class="text-highlight">a hello.</em></h2>
               <p class="contact-intro">A question, an idea, or just a hello.<br>You don’t need a reason to reach out.</p>

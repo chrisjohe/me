@@ -1,16 +1,7 @@
 .contact-content {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(32px, 6vw, 96px);
   width: auto;
-  max-width: 1140px;
-  margin: 24px 0 32px var(--section-content-inset, 0px);
-}
-
-.contact-object {
-  min-width: 0;
-  align-self: start;
+  max-width: 680px;
+  margin: clamp(40px, 7svh, 72px) 0 32px var(--section-content-inset, 0px);
 }
 
 .lanyard-stage {
@@ -116,7 +107,6 @@
 
 .contact-copy {
   min-width: 0;
-  padding: 40px 0;
   color: var(--text-primary);
 }
 
@@ -221,18 +211,12 @@
 
 @media (max-width: 900px) {
   .contact-content {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
     max-width: 540px;
-    margin: 24px auto 32px;
+    margin: 32px auto 32px;
   }
 
   .lanyard-stage {
     height: 500px;
-  }
-
-  .contact-copy {
-    padding-top: 12px;
   }
 
   .contact-copy h2 {
