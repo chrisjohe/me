@@ -191,7 +191,7 @@ function updateElsewhereRoad() {
   }
   if (!active || elsewhereRoadLoading) return;
 
-  elsewhereRoadLoading = import('./assets/elsewhere/road.js?v=20261024-integrated').then(({ mountRoad }) => {
+  elsewhereRoadLoading = import('./assets/elsewhere/road.js?v=20261025-warm-lights').then(({ mountRoad }) => {
     if (view !== 'section' || currentSection !== 'elsewhere') return;
     elsewhereRoad = mountRoad(elsewhereRoadField);
   }).catch(() => {

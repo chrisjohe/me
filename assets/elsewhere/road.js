@@ -109,7 +109,7 @@ export function mountRoad(field) {
       float ends = smoothstep(0.0, 0.045, vAlong) * (1.0 - smoothstep(0.65, 1.0, vAlong));
       float fog = 1.0 - smoothstep(100.0, 410.0, vDistance);
       float core = pow(edge, 10.0) * 0.25 * (1.0 - vMirror);
-      gl_FragColor = vec4(mix(vColor.rgb, vec3(0.95), core), vColor.a * edge * ends * fog);
+      gl_FragColor = vec4(mix(vColor.rgb, vec3(0.95, 0.93, 0.88), core), vColor.a * edge * ends * fog);
     }
   `;
 
@@ -234,8 +234,8 @@ export function mountRoad(field) {
 
   const trails = [];
   const reflections = [];
-  const headColors = [[0.015, 0.70, 0.77], [0.055, 0.37, 0.65], [0.20, 0.39, 0.46]];
-  const tailColors = [[0.85, 0.34, 0.75], [0.40, 0.31, 0.64], [0.76, 0.28, 0.67]];
+  const headColors = [[0.93, 0.91, 0.86], [0.84, 0.82, 0.76], [0.75, 0.73, 0.68]];
+  const tailColors = [[0.46, 0.055, 0.09], [0.64, 0.085, 0.12], [0.76, 0.13, 0.16]];
   [-1, 1].forEach(side => {
     for (let index = 0; index < 36; index += 1) {
       const lane = Math.floor(random() * 3);
@@ -275,14 +275,14 @@ export function mountRoad(field) {
       const height = 1.2 + random() * 0.6;
       const width = 0.05 + random() * 0.08;
       const depth = index * 22 + random() * 8;
-      quad(details, [[x - width, 0, 0], [x + width, 0, 0], [x + width, height, 0], [x - width, height, 0]], [depth, -120, 0.03, 0.66, 0.72, 0.9]);
+      quad(details, [[x - width, 0, 0], [x + width, 0, 0], [x + width, height, 0], [x - width, height, 0]], [depth, -120, 0.88, 0.85, 0.79, 0.9]);
     }
   });
   for (let index = 0; index < 65; index += 1) {
     const x = (random() - 0.5) * 85;
     const y = 3 + random() * 32;
     const length = 0.6 + random() * 2;
-    quad(details, [[x - 0.015, y, 0], [x + 0.015, y, 0], [x + 0.015, y, length], [x - 0.015, y, length]], [random() * 440, -150, 0.6, 0.65, 0.75, 0.2]);
+    quad(details, [[x - 0.015, y, 0], [x + 0.015, y, 0], [x + 0.015, y, length], [x - 0.015, y, length]], [random() * 440, -150, 0.65, 0.64, 0.61, 0.2]);
   }
 
   let roadProgram;
