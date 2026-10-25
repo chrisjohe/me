@@ -1547,7 +1547,7 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="experience"] {
   --card-color: #292d2d;
-  --card-image: url("photos/public/experience.jpg");
+  --card-image: url("photos/public/experience.jpg?v=20261025-web");
   --image-shade: linear-gradient(to top, rgb(0 0 0 / 55%), transparent 45%);
   --image-position-closed: 82% 35%;
   --image-position-open: 50% 50%;
@@ -1567,7 +1567,7 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="portrait"] {
   --card-color: #35302e;
-  --card-image: url("photos/public/portrait.jpg");
+  --card-image: url("photos/public/portrait.jpg?v=20261025-web");
   --image-shade: linear-gradient(to top, rgb(0 0 0 / 55%), transparent 45%);
   --image-x-closed: 0.14;
   --image-y-closed: 0.5;
@@ -1575,7 +1575,7 @@ a.academia-institution-link:focus-visible {
   --image-y-open: 0.4;
   --image-zoom-closed: 1.25;
   --image-zoom-open: 1.06;
-  --portrait-ratio: calc(2890 / 2802);
+  --portrait-ratio: calc(2000 / 1939);
   --portrait-height: calc(100cqh - 2 * var(--card-border));
   --portrait-height-closed: var(--portrait-height);
   --portrait-height-open: var(--portrait-height);
@@ -1605,7 +1605,7 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="perspectives"] {
   --card-color: #203c3b;
-  --card-image: url("photos/public/perspectives.JPG");
+  --card-image: url("photos/public/perspectives.JPG?v=20261025-web");
   --image-shade: linear-gradient(to top, rgb(0 0 0 / 35%), transparent 45%);
   --image-position-closed: 36% 44%;
   --image-position-open: 42% 44%;
@@ -1615,9 +1615,9 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="elsewhere"] {
   --card-color: #30352f;
-  --card-image: url("photos/public/elsewhere.jpg");
+  --card-image: url("photos/public/elsewhere.jpg?v=20261025-new-road");
   --image-shade: linear-gradient(to top, rgb(0 0 0 / 55%), transparent 45%);
-  --image-position-closed: 50% 70%;
+  --image-position-closed: 47% 70%;
   --image-position-open: 50% 78%;
   --image-zoom-closed: 1.1;
   --image-zoom-open: 1.06;
@@ -1627,7 +1627,7 @@ a.academia-institution-link:focus-visible {
   --hey-width-closed: min(calc(var(--card-width-closed) - 24px), 76cqh, 460px);
   --hey-width-open: min(calc(var(--card-width-closed) * var(--active-card-grow) - 56px), calc((100cqh - 112px) * 333.35 / 314.81), 520px);
   --card-color: #294a73;
-  --card-image: url("photos/public/lets_talk.JPG");
+  --card-image: url("photos/public/lets_talk.JPG?v=20261025-web");
   --image-shade: linear-gradient(to top, rgb(4 17 32 / 48%), rgb(8 25 42 / 10%) 48%, rgb(8 25 42 / 16%));
   --image-position-closed: 50% 0%;
   --image-position-open: 50% 0%;
