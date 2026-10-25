@@ -554,6 +554,10 @@ main {
   object-position: center 80%;
 }
 
+.perspective-post-preview > .perspective-post-du {
+  object-position: center 75%;
+}
+
 .perspective-post-photo-pair {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
