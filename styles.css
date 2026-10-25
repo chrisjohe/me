@@ -245,7 +245,9 @@ main {
   }
 
   .footer-blur,
-  .section-view::after {
+  .section-view::after,
+  .academia-tabs::after,
+  .experience-sidebar::after {
     display: none;
   }
 }
@@ -355,16 +357,22 @@ main {
   display: grid;
 }
 
-.section-view::after {
-  content: "";
+.section-view::after,
+.academia-tabs::after,
+.experience-sidebar::after {
   position: absolute;
   z-index: 1;
-  grid-row: 2 / 3;
-  inset: 0 0 auto;
+  inset: 100% 0 auto;
   height: var(--header-fade-height);
   background: linear-gradient(to bottom, var(--page-bg), transparent);
   opacity: var(--header-fade-opacity, 0);
   pointer-events: none;
+}
+
+.section-view::after {
+  content: "";
+  grid-row: 2 / 3;
+  inset: 0 0 auto;
 }
 
 .section-header {
@@ -808,6 +816,10 @@ main {
   gap: 24px;
   padding: 24px 0 8px;
   background: var(--page-bg);
+}
+
+.academia-tabs::after {
+  content: "";
 }
 
 .academia-tabs button {
@@ -1962,6 +1974,10 @@ a.academia-institution-link:focus-visible {
     gap: 12px 24px;
     padding: 12px 0;
     background: var(--page-bg);
+  }
+
+  .experience-sidebar::after {
+    content: "";
   }
 
   .experience-dates {
