@@ -409,7 +409,7 @@ main {
   scroll-padding-bottom: calc(var(--footer-height) + var(--footer-fade-height));
 }
 
-.section-scroll:has(> .academia-content:not([hidden])) {
+.section-scroll:has(> .academia-content:not([hidden]), > .experience-content:not([hidden])) {
   padding-top: 0;
 }
 
@@ -1078,6 +1078,7 @@ a.academia-institution-link:focus-visible {
   --experience-top: clamp(56px, 8svh, 100px);
   max-width: 1280px;
   margin: var(--experience-top) 0 32px var(--section-content-inset);
+  padding-top: var(--section-header-height);
   color: var(--text-primary);
 }
 
