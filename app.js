@@ -500,11 +500,17 @@ function finishExperienceDrag() {
   }
 }
 
+function updateSectionFade() {
+  const opacity = Math.min(1, Math.max(0, sectionScroll.scrollTop) / 16);
+  sectionView.style.setProperty('--header-fade-opacity', String(opacity));
+}
+
 function scheduleSectionUpdate() {
-  if (sectionView.hidden || experienceContent.hidden || sectionFrame !== null) return;
+  if (sectionView.hidden || sectionFrame !== null) return;
   sectionFrame = requestAnimationFrame(() => {
     sectionFrame = null;
     updateExperienceTimeline();
+    updateSectionFade();
   });
 }
 
@@ -700,6 +706,7 @@ async function switchSection(key, entry) {
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
   updateExperienceTimeline();
+  updateSectionFade();
   await fadeSection(0, 1);
   finishSection(focusTargets[entry.focusIndex] ?? sectionView);
 }
@@ -726,6 +733,7 @@ async function openSection(card, entry, instant = false) {
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
   updateExperienceTimeline();
+  updateSectionFade();
 
   if (!instant && motion.enabled) {
     const timing = { duration: card ? curtainDuration : 220, fill: 'both' };
@@ -939,6 +947,7 @@ for (const [index, button] of academiaButtons.entries()) {
     if (targetIndex !== activeAcademia) {
       selectAcademiaTab(targetIndex);
       sectionScroll.scrollTo({ top: 0, behavior: 'instant' });
+      updateSectionFade();
       revealAcademiaChapter();
     }
     academiaButtons[targetIndex].focus({ preventScroll: true });

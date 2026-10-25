@@ -16,6 +16,7 @@
 
 :root {
   --page-padding: 40px;
+  --header-fade-height: 32px;
   --footer-height: calc(68px + env(safe-area-inset-bottom));
   --footer-fade-height: 48px;
   --page-bg: #0d0d0d;
@@ -243,7 +244,8 @@ main {
     color: var(--text-muted);
   }
 
-  .footer-blur {
+  .footer-blur,
+  .section-view::after {
     display: none;
   }
 }
@@ -353,6 +355,18 @@ main {
   display: grid;
 }
 
+.section-view::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  grid-row: 2 / 3;
+  inset: 0 0 auto;
+  height: var(--header-fade-height);
+  background: linear-gradient(to bottom, var(--page-bg), transparent);
+  opacity: var(--header-fade-opacity, 0);
+  pointer-events: none;
+}
+
 .section-header {
   position: relative;
   z-index: 3;
@@ -361,7 +375,6 @@ main {
   gap: 24px;
   padding: var(--page-padding) var(--page-padding) 16px;
   background: var(--page-bg);
-  box-shadow: 0 2px 0 var(--page-bg);
 }
 
 .section-scroll {
@@ -369,7 +382,7 @@ main {
   min-height: 0;
   padding: 0 var(--page-padding) calc(var(--page-padding) + var(--footer-height) + var(--footer-fade-height));
   overflow-y: auto;
-  scroll-padding-top: 24px;
+  scroll-padding-top: calc(var(--header-fade-height) + 8px);
   scroll-padding-bottom: calc(var(--footer-height) + var(--footer-fade-height));
 }
 
@@ -1887,6 +1900,10 @@ a.academia-institution-link:focus-visible {
 }
 
 @media (max-width: 900px), (max-height: 600px) {
+  :root {
+    --header-fade-height: 16px;
+  }
+
   .section-scroll:has(.academia-content:not([hidden])) {
     scroll-padding-top: calc(3rem + 40px);
   }
