@@ -195,9 +195,8 @@ main {
     --blur-direction: to top;
     --blur-height: calc(68px + var(--header-fade-height));
     z-index: 1;
-    grid-row: 2 / 3;
-    inset: -68px 0 auto;
-    height: calc(68px + var(--header-menu-height, 0px) + var(--header-fade-height));
+    inset: 0 0 auto;
+    height: calc(var(--section-header-height) + var(--header-menu-height, 0px) + var(--header-fade-height));
     visibility: var(--header-blur-visibility, hidden);
   }
 
@@ -375,6 +374,7 @@ main {
 
 .section-view {
   --section-content-inset: 68px;
+  --section-header-height: 0px;
   position: fixed;
   z-index: 3;
   inset: 0;
@@ -390,29 +390,27 @@ main {
 .section-header {
   position: relative;
   z-index: 3;
+  grid-area: 1 / 1;
+  align-self: start;
   display: flex;
   align-items: center;
   gap: 24px;
   padding: var(--page-padding) var(--page-padding) 16px;
-  background: var(--page-bg);
-}
-
-.section-header::after {
-  content: "";
-  position: absolute;
-  inset: 100% 0 auto;
-  height: 2px;
-  background: var(--page-bg);
-  pointer-events: none;
+  background: var(--section-menu-bg, var(--page-bg));
 }
 
 .section-scroll {
+  grid-area: 1 / 1 / -1 / 2;
   min-width: 0;
   min-height: 0;
-  padding: 0 var(--page-padding) calc(var(--page-padding) + var(--footer-height) + var(--footer-fade-height));
+  padding: var(--section-header-height) var(--page-padding) calc(var(--page-padding) + var(--footer-height) + var(--footer-fade-height));
   overflow-y: auto;
-  scroll-padding-top: calc(var(--header-menu-height, 0px) + var(--header-fade-height) + 8px);
+  scroll-padding-top: calc(var(--section-header-height) + var(--header-menu-height, 0px) + var(--header-fade-height) + 8px);
   scroll-padding-bottom: calc(var(--footer-height) + var(--footer-fade-height));
+}
+
+.section-scroll:has(> .academia-content:not([hidden])) {
+  padding-top: 0;
 }
 
 .section-scroll:focus-visible {
@@ -822,13 +820,14 @@ main {
 .academia-content {
   max-width: 880px;
   margin: 0 0 32px var(--section-content-inset);
+  padding-top: var(--section-header-height);
   color: var(--text-primary);
 }
 
 .academia-tabs {
   position: sticky;
   z-index: 2;
-  top: 0;
+  top: var(--section-header-height);
   display: flex;
   gap: 24px;
   padding: 24px 0 8px;
@@ -1111,7 +1110,7 @@ a.academia-institution-link:focus-visible {
 
 .experience-sidebar {
   position: sticky;
-  top: var(--experience-top);
+  top: calc(var(--section-header-height) + var(--experience-top));
 }
 
 .experience-dates {

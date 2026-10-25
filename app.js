@@ -3,6 +3,7 @@ const cardGroup = document.querySelector('.cards');
 const portraitCard = document.querySelector('[data-card="portrait"]');
 const sectionView = document.querySelector('.section-view');
 const sectionScroll = document.querySelector('.section-scroll');
+const sectionHeader = document.querySelector('.section-header');
 const sectionTitle = document.querySelector('#section-title');
 const backButton = document.querySelector('.section-back');
 const siteFooter = document.querySelector('.site-footer');
@@ -423,13 +424,14 @@ function revealAcademiaChapter() {
 }
 
 function measureExperienceTimeline() {
-  const viewportHeight = Math.max(0, sectionScroll.clientHeight - siteFooter.offsetHeight);
+  const headerHeight = sectionHeader.getBoundingClientRect().height;
+  const viewportHeight = Math.max(0, sectionScroll.clientHeight - headerHeight - siteFooter.offsetHeight);
   if (experienceViewportHeight !== viewportHeight) {
     experienceViewportHeight = viewportHeight;
     experienceContent.style.setProperty('--experience-viewport-height', `${viewportHeight}px`);
   }
   const viewportTop = sectionScroll.getBoundingClientRect().top;
-  const readingOffset = Math.max(viewportHeight * 0.3, parseFloat(getComputedStyle(sectionScroll).scrollPaddingTop));
+  const readingOffset = Math.max(headerHeight + viewportHeight * 0.3, parseFloat(getComputedStyle(sectionScroll).scrollPaddingTop));
   const maxScroll = Math.max(0, sectionScroll.scrollHeight - sectionScroll.clientHeight);
   const scrollTop = Math.max(0, Math.min(sectionScroll.scrollTop, maxScroll));
   const thresholds = experienceEntries.map((entry, index) => index === 0 ? 0
@@ -503,10 +505,12 @@ function finishExperienceDrag() {
 function updateSectionFade() {
   if (sectionView.hidden) return;
 
+  const headerBounds = sectionHeader.getBoundingClientRect();
+  sectionView.style.setProperty('--section-header-height', `${headerBounds.height}px`);
   const menu = currentSection === 'academia' ? academiaTabs
     : currentSection === 'experience' && compactDetailLayout.matches ? experienceSidebar : null;
   const menuHeight = menu
-    ? Math.max(0, Math.ceil(menu.getBoundingClientRect().bottom - sectionScroll.getBoundingClientRect().top))
+    ? Math.max(0, Math.ceil(menu.getBoundingClientRect().bottom - headerBounds.bottom))
     : 0;
   sectionView.style.setProperty('--header-menu-height', `${menuHeight}px`);
   sectionView.style.setProperty('--header-blur-visibility', sectionScroll.scrollTop > 0 ? 'visible' : 'hidden');
@@ -710,6 +714,7 @@ async function switchSection(key, entry) {
   siteFooter.inert = true;
   await fadeSection(1, 0);
   showSection(key);
+  updateSectionFade();
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
   updateSectionFade();
@@ -737,6 +742,7 @@ async function openSection(card, entry, instant = false) {
 
   showSection(entry.key);
   sectionView.hidden = false;
+  updateSectionFade();
   updatePerspectivesLayout();
   sectionScroll.scrollTop = entry.scrollTop;
   updateSectionFade();
@@ -834,6 +840,7 @@ window.addEventListener('resize', scheduleSectionUpdate);
 experienceContent.addEventListener('toggle', scheduleSectionUpdate, true);
 
 const sectionMenuResize = new ResizeObserver(scheduleSectionUpdate);
+sectionMenuResize.observe(sectionHeader);
 sectionMenuResize.observe(academiaTabs);
 sectionMenuResize.observe(experienceSidebar);
 sectionMenuResize.observe(sectionScroll);
