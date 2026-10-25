@@ -1713,12 +1713,12 @@ a.academia-institution-link:focus-visible {
 
 .card[data-card="contact"] {
   --card-color: #294a73;
-  --card-image: url("photos/public/lets_talk.JPG?v=20261025-web");
+  --card-image: url("photos/public/lets_talk.JPG?v=20261025-sea-coast");
   --image-shade: linear-gradient(to top, rgb(4 17 32 / 48%), rgb(8 25 42 / 10%) 48%, rgb(8 25 42 / 16%));
   --image-position-closed: 50% 0%;
-  --image-position-open: 50% 0%;
+  --image-position-open: 50% 80%;
   --image-zoom-closed: 1.65;
-  --image-zoom-open: 1.55;
+  --image-zoom-open: 1.1;
 }
 
 .card[data-card="contact"]::before {
@@ -1816,9 +1816,9 @@ a.academia-institution-link:focus-visible {
 
   .card[data-card="contact"] {
     --image-position-closed: 50% 24%;
-    --image-position-open: 50% 8%;
+    --image-position-open: 50% 80%;
     --image-zoom-closed: 1.62;
-    --image-zoom-open: 1.56;
+    --image-zoom-open: 1.1;
   }
 
   .section-content {
