@@ -57,7 +57,7 @@ const curtainDuration = 650;
 const curtainSplit = 400 / curtainDuration;
 const curtainEase = 'cubic-bezier(0.42, 0, 0.58, 1)';
 const navigationStateKey = 'cjPortraitNavigation';
-const sectionKeys = new Set(['about', ...cards.map(card => card.dataset.card)]);
+const sectionKeys = new Set(['about', 'privacy', ...cards.map(card => card.dataset.card)]);
 const focusTargets = [...document.querySelectorAll('button, a, summary, [tabindex]')];
 const navigationEntries = new Map();
 
@@ -826,7 +826,7 @@ async function closeSection(entry) {
     ? document.elementFromPoint(mousePosition.x, mousePosition.y)?.closest('.card')
     : null;
   const returnCard = hoveredCard || portraitCard;
-  const returnButton = selectedCard ? returnCard : aboutButton;
+  const returnButton = selectedCard ? returnCard : focusTargets[entry.focusIndex] ?? aboutButton;
   returnButton.focus({ preventScroll: true });
   view = 'cards';
   activateCard(returnCard);
@@ -838,8 +838,6 @@ for (const link of document.querySelectorAll('[data-email-user]')) {
   link.href = `mailto:${address}`;
   if (link.dataset.emailDisplay !== 'icon') link.append(address);
 }
-
-aboutButton.addEventListener('click', () => navigateTo('about', aboutButton));
 
 for (const trigger of document.querySelectorAll('[data-section-target]')) {
   trigger.addEventListener('click', event => {

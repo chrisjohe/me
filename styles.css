@@ -291,7 +291,7 @@ main {
   font-family: var(--font-sans);
 }
 
-.footer-actions button {
+.footer-actions :is(button, a) {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -302,20 +302,22 @@ main {
   background: transparent;
   color: var(--text-secondary);
   font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
   touch-action: manipulation;
   transition: background-color 160ms ease, color 160ms ease;
 }
 
-.footer-actions button:first-child {
+.footer-actions :is(button, a):first-child {
   border-radius: 7px 0 0 7px;
 }
 
-.footer-actions button:last-child {
+.footer-actions :is(button, a):last-child {
   border-radius: 0 7px 7px 0;
 }
 
-.footer-actions button + button {
+.footer-actions :is(button, a) + :is(button, a) {
   border-left: 1px solid var(--button-border);
 }
 
@@ -344,12 +346,12 @@ main {
   mask: var(--motion-icon) center / contain no-repeat;
 }
 
-.footer-actions button:is(:hover, :focus-visible, [aria-current="page"]) {
+.footer-actions :is(button, a):is(:hover, :focus-visible, [aria-current="page"]) {
   background: var(--button-hover);
   color: var(--text-strong);
 }
 
-.footer-actions button:focus-visible {
+.footer-actions :is(button, a):focus-visible {
   z-index: 1;
   outline: var(--focus-ring);
   outline-offset: 2px;
@@ -449,6 +451,24 @@ main {
 
 .section-content p {
   margin: 0 0 1rem;
+}
+
+.section-content address {
+  margin: 0 0 1rem;
+  font-style: normal;
+}
+
+.section-content h3 {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--text-strong);
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.legal-meta {
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
 }
 
 .section-content a,
@@ -2048,6 +2068,10 @@ a.academia-institution-link:focus-visible {
 }
 
 @media (max-width: 600px) {
+  .site-footer {
+    gap: 12px;
+  }
+
   .perspective-post {
     padding: 16px;
   }
