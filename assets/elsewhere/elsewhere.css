@@ -40,7 +40,7 @@
   max-width: 36ch;
   margin: 20px 0 0;
   color: var(--text-secondary);
-  font: 400 1rem / 1.6 var(--font-sans);
+  font: 400 1rem / 1.6 var(--font-serif);
 }
 
 .elsewhere-road {
@@ -98,7 +98,7 @@
 .elsewhere-chapter p {
   margin: 0;
   color: var(--text-secondary);
-  font: 400 1rem / 1.65 var(--font-sans);
+  font: 400 1rem / 1.65 var(--font-serif);
 }
 
 .elsewhere-description {
@@ -125,6 +125,7 @@
 .elsewhere-volunteering .experience-role-list .elsewhere-recognition {
   margin-top: 6px;
   color: var(--text-muted);
+  font-family: var(--font-sans);
   font-size: 0.875rem;
 }
 

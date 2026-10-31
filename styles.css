@@ -14,6 +14,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("font/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("font/inter-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --page-padding: 40px;
   --header-fade-height: 48px;
@@ -53,7 +69,7 @@
   --career-fsj: #b592d1;
   --career-zeiss: #8f9fe0;
   --font-serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --card-motion: 520ms cubic-bezier(0.42, 0, 0.58, 1);
   --focus-ring: 2px solid var(--text-accent-muted);
   color-scheme: dark;
@@ -570,7 +586,7 @@ main {
   border-radius: 16px;
   background: var(--button-bg);
   color: var(--text-primary);
-  font: 400 0.9375rem / 1.6 var(--font-sans);
+  font: 400 0.9375rem / 1.6 var(--font-serif);
   overflow-wrap: break-word;
 }
 
@@ -604,6 +620,7 @@ main {
 .perspective-post-headline,
 .perspective-post-year {
   color: var(--text-secondary);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   line-height: 0.875rem;
 }
@@ -688,6 +705,7 @@ main {
   gap: 12px;
   padding: 10px 12px;
   border-top: 1px solid var(--border-soft);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
 }
 
@@ -1027,6 +1045,7 @@ a.academia-institution-link:focus-visible {
 
 .academia-facts dt {
   color: var(--text-accent-muted);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
 }
 
@@ -1043,7 +1062,7 @@ a.academia-institution-link:focus-visible {
 .academia-detail-group > h3 {
   margin: 0 0 16px;
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
@@ -1060,7 +1079,7 @@ a.academia-institution-link:focus-visible {
 .academia-international > h3 {
   margin: 0 0 16px;
   color: var(--text-accent-muted);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1112,7 +1131,7 @@ a.academia-institution-link:focus-visible {
 .academia-course-list p {
   margin: 8px 0 0;
   color: var(--text-secondary);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -1120,6 +1139,7 @@ a.academia-institution-link:focus-visible {
 .academia-course-list .academia-list-location {
   margin-top: 4px;
   color: var(--text-accent-muted);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
 }
 
@@ -1422,7 +1442,7 @@ a.academia-institution-link:focus-visible {
 
 .experience-roles,
 .academia-details {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 0.9375rem;
   line-height: 1.6;
 }
@@ -1437,6 +1457,7 @@ a.academia-institution-link:focus-visible {
   padding: 16px 0;
   border-radius: 4px;
   color: var(--text-primary);
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
@@ -1505,6 +1526,7 @@ a.academia-institution-link:focus-visible {
 .experience-role-list .experience-role-date {
   margin: 0 0 6px;
   color: var(--career-color);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-variant-numeric: tabular-nums;
 }

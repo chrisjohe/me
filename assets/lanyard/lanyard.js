@@ -306,7 +306,7 @@ const buildWeaveTexture = () => {
   return texture;
 };
 
-const paintFace = (canvas, image, color) => {
+const paintFace = (canvas, image, color, font) => {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   ctx.fillStyle = toCss(color);
@@ -316,7 +316,7 @@ const paintFace = (canvas, image, color) => {
     const height = width * image.height / image.width;
     ctx.drawImage(image, (canvas.width - width) / 2, canvas.height - height, width, height);
   }
-  ctx.font = '42px Arial, sans-serif';
+  ctx.font = font;
   ctx.fillStyle = '#858585';
   ctx.textAlign = 'right';
   ctx.fillText('@chrisjohe', canvas.width - 64, 112);
@@ -722,6 +722,7 @@ export function mountLanyard(container) {
   const motionSource = motion ?? window.matchMedia('(prefers-reduced-motion: reduce)');
   let reducedMotion = motion ? !motion.enabled : motionSource.matches;
   let paused = false;
+  const badgeFont = `42px ${getComputedStyle(container).getPropertyValue('--font-sans').trim() || 'sans-serif'}`;
 
   const paintFaces = () => {
     const s = settings;
@@ -736,8 +737,8 @@ export function mountLanyard(container) {
       frontTexture.dispose();
       backTexture.dispose();
     }
-    paintFace(frontCanvas, images.front, color, s.imageFit);
-    paintFace(backCanvas, images.back || images.front, color, s.imageFit);
+    paintFace(frontCanvas, images.front, color, badgeFont);
+    paintFace(backCanvas, images.back || images.front, color, badgeFont);
     frontTexture.needsUpdate = true;
     backTexture.needsUpdate = true;
     start();
@@ -1143,6 +1144,9 @@ export function mountLanyard(container) {
   onMotionChange();
   if (!reducedMotion) sim.body.velocity.x = 1.1;
   container.classList.add('is-ready');
+  document.fonts.load(badgeFont, '@chrisjohe').then(() => {
+    if (alive) paintFaces();
+  }).catch(() => {});
 
   const destroy = () => {
     alive = false;

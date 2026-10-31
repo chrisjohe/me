@@ -217,7 +217,7 @@ function updatePortraitLanyard() {
   }
   if (!active || portraitLanyardLoading) return;
 
-  portraitLanyardLoading = import('./assets/lanyard/lanyard.js?v=20261024-motion-toggle').then(({ mountLanyard }) => {
+  portraitLanyardLoading = import('./assets/lanyard/lanyard.js?v=20261031-inter-newsreader').then(({ mountLanyard }) => {
     if (view !== 'section' || currentSection !== 'portrait') return;
     portraitLanyard = mountLanyard(portraitLanyardStage);
     const canvas = portraitLanyardStage.querySelector('canvas');
