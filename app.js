@@ -8,6 +8,9 @@ const sectionTitle = document.querySelector('#section-title');
 const backButton = document.querySelector('.section-back');
 const siteFooter = document.querySelector('.site-footer');
 const aboutButton = document.querySelector('.about-button');
+const footerMenuToggle = document.querySelector('.footer-menu-toggle');
+const footerMenu = document.querySelector('#footer-menu');
+const footerMenuItems = [...footerMenu.querySelectorAll('[role="menuitem"]')];
 const sectionContents = [...document.querySelectorAll('[data-section]')];
 const perspectivesContent = document.querySelector('[data-section="perspectives"]');
 const perspectivePosts = [...perspectivesContent.querySelectorAll('.perspective-post')];
@@ -568,6 +571,7 @@ function rememberNavigation(trigger = document.activeElement) {
 }
 
 async function renderNavigation(entry, instant = false) {
+  closeFooterMenu(footerMenu.contains(document.activeElement));
   pendingNavigation = { entry, instant };
   if (navigating) return;
 
@@ -637,6 +641,7 @@ function initializeNavigation() {
 }
 
 window.addEventListener('popstate', event => {
+  closeFooterMenu(footerMenu.contains(document.activeElement));
   rememberNavigation();
   const saved = readNavigationEntry(event.state);
   if (saved) {
@@ -1065,12 +1070,71 @@ cardGroup.addEventListener('pointerleave', event => {
 
 backButton.addEventListener('click', goBack);
 
+function closeFooterMenu(restoreFocus = false) {
+  if (footerMenu.hidden) return;
+  footerMenu.hidden = true;
+  footerMenuToggle.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) footerMenuToggle.focus({ preventScroll: true });
+}
+
+function openFooterMenu(index = 0) {
+  footerMenu.hidden = false;
+  footerMenuToggle.setAttribute('aria-expanded', 'true');
+  footerMenuItems[index].focus({ preventScroll: true });
+}
+
+footerMenuToggle.addEventListener('click', () => {
+  if (footerMenu.hidden) openFooterMenu();
+  else closeFooterMenu(true);
+});
+
+footerMenuToggle.addEventListener('keydown', event => {
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
+  if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+  event.preventDefault();
+  openFooterMenu(event.key === 'ArrowUp' ? footerMenuItems.length - 1 : 0);
+});
+
+footerMenu.addEventListener('keydown', event => {
+  if (event.key === 'Tab') {
+    event.preventDefault();
+    closeFooterMenu();
+    (event.shiftKey ? footerMenuToggle : aboutButton).focus({ preventScroll: true });
+    return;
+  }
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
+  const index = footerMenuItems.indexOf(document.activeElement);
+  let next;
+  if (event.key === 'ArrowDown') next = (index + 1) % footerMenuItems.length;
+  else if (event.key === 'ArrowUp') next = (index - 1 + footerMenuItems.length) % footerMenuItems.length;
+  else if (event.key === 'Home') next = 0;
+  else if (event.key === 'End') next = footerMenuItems.length - 1;
+  else return;
+  event.preventDefault();
+  footerMenuItems[next].focus({ preventScroll: true });
+});
+
+document.addEventListener('pointerdown', event => {
+  if (!footerMenu.contains(event.target) && !footerMenuToggle.contains(event.target)) {
+    closeFooterMenu(footerMenu.contains(document.activeElement));
+  }
+}, { capture: true });
+
+document.addEventListener('focusin', event => {
+  if (!footerMenu.contains(event.target) && !footerMenuToggle.contains(event.target)) {
+    closeFooterMenu();
+  }
+});
+
 document.addEventListener('keydown', event => {
   inputMode = 'keyboard';
   if (event.repeat && (event.key === 'Enter' || event.key === ' ')) {
     event.preventDefault();
   }
-  if (event.key === 'Escape' && view === 'section') {
+  if (event.key === 'Escape' && !footerMenu.hidden) {
+    event.preventDefault();
+    closeFooterMenu(true);
+  } else if (event.key === 'Escape' && view === 'section') {
     event.preventDefault();
     goBack();
   }

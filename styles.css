@@ -282,6 +282,7 @@ main {
 }
 
 .footer-actions {
+  position: relative;
   display: inline-flex;
   flex: 0 0 auto;
   align-items: stretch;
@@ -309,26 +310,50 @@ main {
   transition: background-color 160ms ease, color 160ms ease;
 }
 
-.footer-actions :is(button, a):first-child {
+.footer-actions > .footer-menu-toggle {
+  width: 44px;
+  padding: 0;
   border-radius: 7px 0 0 7px;
 }
 
-.footer-actions :is(button, a):last-child {
+.footer-actions > .about-button {
   border-radius: 0 7px 7px 0;
-}
-
-.footer-actions :is(button, a) + :is(button, a) {
   border-left: 1px solid var(--button-border);
 }
 
-.footer-actions .theme-toggle,
-.footer-actions .motion-toggle {
-  width: 44px;
-  padding: 0;
+.footer-menu {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: calc(100% + 8px);
+  width: 160px;
+  max-width: calc(100vw - 2 * var(--page-padding));
+  max-height: calc(100svh - var(--footer-height) - 16px);
+  overflow-y: auto;
+  padding: 4px;
+  border: 1px solid var(--button-border);
+  border-radius: 10px;
+  background: var(--button-bg);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+}
+
+.footer-menu[hidden] {
+  display: none;
+}
+
+.footer-menu button {
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-align: left;
 }
 
 .theme-icon,
-.motion-icon {
+.motion-icon,
+.more-icon {
   display: block;
   flex: 0 0 20px;
   width: 20px;
@@ -346,7 +371,12 @@ main {
   mask: var(--motion-icon) center / contain no-repeat;
 }
 
-.footer-actions :is(button, a):is(:hover, :focus-visible, [aria-current="page"]) {
+.more-icon {
+  -webkit-mask: url("assets/more_horiz_40dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg") center / contain no-repeat;
+  mask: url("assets/more_horiz_40dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg") center / contain no-repeat;
+}
+
+.footer-actions :is(button, a):is(:hover, :focus-visible, [aria-current="page"], [aria-expanded="true"]) {
   background: var(--button-hover);
   color: var(--text-strong);
 }
@@ -355,6 +385,10 @@ main {
   z-index: 1;
   outline: var(--focus-ring);
   outline-offset: 2px;
+}
+
+.footer-menu button:focus-visible {
+  outline-offset: -2px;
 }
 
 .cards {

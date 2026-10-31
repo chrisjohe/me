@@ -13,7 +13,7 @@
       const mode = theme === 'dark' ? 'Dark' : 'Light';
       const source = preference === null ? 'system' : 'manual';
       const nextTheme = theme === 'dark' ? 'light' : 'dark';
-      const label = `${mode} mode (${source}) · Switch to ${nextTheme} mode`;
+      const label = `Appearance: ${mode} mode (${source}) · Switch to ${nextTheme} mode`;
       button.setAttribute('aria-label', label);
       button.title = label;
     }

@@ -26,13 +26,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <script src="theme.js?v=20261023-theme-icons"></script>
-    <script src="motion.js?v=20261024-motion-toggle"></script>
+    <script src="theme.js?v=20261031-footer-menu-compact"></script>
+    <script src="motion.js?v=20261031-footer-menu-compact"></script>
     <link rel="preload" href="font/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20261030-legal-review">
+    <link rel="stylesheet" href="styles.css?v=20261031-footer-menu-compact">
     <link rel="stylesheet" href="assets/elsewhere/elsewhere.css?v=20261024-no-divider">
     <link rel="stylesheet" href="assets/lanyard/contact.css?v=20261025-contact-chat-blue">
-    <script src="app.js?v=20261030-legal-review" defer></script>
+    <script src="app.js?v=20261031-footer-menu-compact" defer></script>
   </head>
   <body>
     <main aria-label="Digital Portrait">
@@ -865,13 +865,20 @@
       </div>
       <span>© Christian J. Heinze</span>
       <div class="footer-actions" role="group" aria-label="Appearance, animations, and legal information">
-        <button class="theme-toggle" type="button" aria-label="Switch color scheme" title="Switch color scheme">
-          <span class="theme-icon" aria-hidden="true"></span>
-        </button>
-        <button class="motion-toggle" type="button" aria-label="Toggle animations" title="Toggle animations">
-          <span class="motion-icon" aria-hidden="true"></span>
+        <button class="footer-menu-toggle" id="footer-menu-toggle" type="button" aria-label="Appearance and animations" title="Appearance and animations" aria-haspopup="menu" aria-expanded="false" aria-controls="footer-menu">
+          <span class="more-icon" aria-hidden="true"></span>
         </button>
         <a class="about-button" href="#about" data-section-target="about" aria-controls="section-view" title="About this website and legal information">About &amp; Legal</a>
+        <div class="footer-menu" id="footer-menu" role="menu" aria-labelledby="footer-menu-toggle" hidden>
+          <button class="theme-toggle" type="button" role="menuitem" tabindex="-1" aria-label="Appearance: Switch color scheme" title="Switch color scheme">
+            <span class="theme-icon" aria-hidden="true"></span>
+            <span>Appearance</span>
+          </button>
+          <button class="motion-toggle" type="button" role="menuitem" tabindex="-1" aria-label="Toggle animations" title="Toggle animations">
+            <span class="motion-icon" aria-hidden="true"></span>
+            <span>Animations</span>
+          </button>
+        </div>
       </div>
     </footer>
   </body>
