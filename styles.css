@@ -1696,6 +1696,7 @@ a.academia-institution-link:focus-visible {
   font-size: 1.25rem;
   line-height: 1.1;
   writing-mode: vertical-rl;
+  text-orientation: sideways;
   transform: rotate(180deg);
   opacity: 1;
   text-shadow: 0 1px 3px rgb(0 0 0 / 90%), 0 0 14px rgb(0 0 0 / 65%);
