@@ -68,6 +68,7 @@
   --career-sparkasse: #d77b7b;
   --career-fsj: #b592d1;
   --career-zeiss: #8f9fe0;
+  --career-kaufland: #ee7a83;
   --font-serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --card-motion: 520ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -115,6 +116,7 @@
   --career-sparkasse: #a04747;
   --career-fsj: #76529c;
   --career-zeiss: #45568e;
+  --career-kaufland: #b30c1c;
   color-scheme: light;
 }
 
@@ -1176,6 +1178,10 @@ a.academia-institution-link:focus-visible {
   --career-color: var(--career-zeiss);
 }
 
+.experience-content [data-career="kaufland"] {
+  --career-color: var(--career-kaufland);
+}
+
 .experience-layout {
   display: grid;
   grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
@@ -2082,12 +2088,21 @@ a.academia-institution-link:focus-visible {
     margin: 0 -4px;
     padding: 8px 4px;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 4px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
   }
 
   .experience-timeline {
     grid-auto-flow: column;
-    grid-auto-columns: minmax(max-content, 1fr);
+    grid-auto-columns: calc((100% - 16px) / 3);
     gap: 8px;
+  }
+
+  .experience-timeline li {
+    min-width: 0;
+    scroll-snap-align: start;
   }
 
   .experience-timeline button {
@@ -2117,6 +2132,7 @@ a.academia-institution-link:focus-visible {
 
   .timeline-company {
     font-size: clamp(0.8125rem, 2.6vw, 0.9375rem);
+    white-space: nowrap;
   }
 
   .experience-entry h2 {

@@ -32,6 +32,7 @@ const academiaChapters = [...document.querySelectorAll('.academia-chapter')];
 const academiaButtons = [...document.querySelectorAll('[data-academia-target]')];
 const experienceContent = document.querySelector('#experience-content');
 const experienceSidebar = document.querySelector('.experience-sidebar');
+const experienceNav = experienceSidebar.querySelector('nav');
 const experienceEntries = [...document.querySelectorAll('.experience-entry')];
 const experiencePeriods = [...document.querySelectorAll('.experience-period')];
 const experienceButtons = [...document.querySelectorAll('[data-experience-target]')];
@@ -338,6 +339,7 @@ function prepareExperienceScale() {
   }
   addTick(1, String(Math.floor(earliest / 12)), true);
   experienceAxis.replaceChildren(ticks);
+  experienceNav.scrollTo({ left: 0, behavior: 'instant' });
   activeExperience = -1;
 }
 
@@ -443,6 +445,17 @@ function measureExperienceTimeline() {
   return { thresholds, maxScroll, scrollTop };
 }
 
+function revealExperienceButton(button, behavior = motion.enabled ? 'smooth' : 'instant') {
+  if (!button || !compactDetailLayout.matches || experienceContent.hidden || sectionView.hidden) return;
+
+  const bounds = experienceNav.getBoundingClientRect();
+  const target = button.getBoundingClientRect();
+  const before = target.left - bounds.left - 4;
+  const after = target.right - bounds.right + 4;
+  const distance = before < 0 ? before : after > 0 ? after : 0;
+  if (Math.abs(distance) > 1) experienceNav.scrollBy({ left: distance, behavior });
+}
+
 function updateExperienceTimeline() {
   if (experienceContent.hidden || sectionView.hidden) return;
 
@@ -472,6 +485,7 @@ function updateExperienceTimeline() {
     if (index === activeIndex) button.setAttribute('aria-current', 'step');
     else button.removeAttribute('aria-current');
   });
+  revealExperienceButton(experienceButtons[activeIndex]);
 }
 
 function seekExperienceTimeline(position) {
@@ -855,7 +869,10 @@ for (const trigger of document.querySelectorAll('[data-section-target]')) {
 }
 
 sectionScroll.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
-window.addEventListener('resize', scheduleSectionUpdate);
+window.addEventListener('resize', () => {
+  scheduleSectionUpdate();
+  revealExperienceButton(experienceButtons[activeExperience], 'instant');
+});
 experienceContent.addEventListener('toggle', scheduleSectionUpdate, true);
 
 const sectionMenuResize = new ResizeObserver(scheduleSectionUpdate);
@@ -1008,6 +1025,7 @@ for (const [index, button] of academiaButtons.entries()) {
 }
 
 for (const button of experienceButtons) {
+  button.addEventListener('focus', () => revealExperienceButton(button, 'instant'));
   button.addEventListener('click', () => {
     if (view !== 'section' || currentSection !== 'experience') return;
 
