@@ -337,7 +337,9 @@ function prepareExperienceScale() {
     const position = (present - year * 12) / totalMonths;
     if (position > 0 && year % 5 === 0) addTick(position, String(year), false, true);
   }
-  addTick(1, String(Math.floor(earliest / 12)), true);
+  const earliestYear = Math.floor(earliest / 12);
+  const earliestYearIsMajor = earliestYear % 5 === 0;
+  addTick(1, String(earliestYear), !earliestYearIsMajor, earliestYearIsMajor);
   experienceAxis.replaceChildren(ticks);
   experienceNav.scrollTo({ left: 0, behavior: 'instant' });
   activeExperience = -1;

@@ -667,64 +667,6 @@ main {
   object-position: center 75%;
 }
 
-.regional-study-visual {
-  --study-strategy: #9bbde5;
-  --study-experience: #dfb496;
-  display: block;
-  width: 100%;
-  height: auto;
-  background: var(--page-bg);
-  fill: var(--text-primary);
-  font-family: var(--font-sans);
-}
-
-:root[data-theme="light"] .regional-study-visual {
-  --study-strategy: #416891;
-  --study-experience: #965b36;
-}
-
-.regional-study-kicker {
-  fill: var(--text-secondary);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 2px;
-}
-
-.regional-study-title {
-  font-family: var(--font-serif);
-  font-size: 44px;
-  font-weight: 500;
-}
-
-.regional-study-strategy {
-  fill: var(--study-strategy);
-  stroke: var(--study-strategy);
-}
-
-.regional-study-experience {
-  fill: var(--study-experience);
-  stroke: var(--study-experience);
-}
-
-.regional-study-strategy,
-.regional-study-experience {
-  fill-opacity: 0.1;
-  stroke-width: 2;
-}
-
-.regional-study-label {
-  font-size: 32px;
-  font-weight: 500;
-}
-
-.regional-study-label-strategy {
-  fill: var(--study-strategy);
-}
-
-.regional-study-label-experience {
-  fill: var(--study-experience);
-}
-
 .perspective-post-photo-pair {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
@@ -767,6 +709,10 @@ main {
   border-top: 1px solid var(--border-soft);
   font-family: var(--font-sans);
   font-size: 0.8125rem;
+}
+
+.perspective-post-link-label:only-child {
+  border-top: 0;
 }
 
 .perspective-post-link-site {
