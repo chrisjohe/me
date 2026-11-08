@@ -586,7 +586,7 @@ main {
   border-radius: 16px;
   background: var(--button-bg);
   color: var(--text-primary);
-  font: 400 0.9375rem / 1.6 var(--font-serif);
+  font: 400 0.9375rem / 1.6 var(--font-sans);
   overflow-wrap: break-word;
 }
 
