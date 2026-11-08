@@ -594,7 +594,7 @@ const stepSimulation = (sim, dt, physics, time) => {
 
 export function mountLanyard(container) {
   const settings = {
-    frontImage: new URL('./profile-paper.png', import.meta.url).href,
+    frontImage: new URL('./profile-paper.png?v=20261108-badge-portrait', import.meta.url).href,
     backImage: null,
     imageFit: 'contain',
     cardColor: '#ffffff',
