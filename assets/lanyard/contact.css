@@ -254,7 +254,7 @@
 }
 
 .contact-icon-strava {
-  --contact-icon: url("../strava-logo.svg");
+  --contact-icon: url("../strava-logo.svg?v=20261108-vector-path");
 }
 
 @media (max-width: 900px) {
